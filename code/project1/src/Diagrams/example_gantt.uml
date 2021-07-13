@@ -11,17 +11,15 @@ sunday are closed
 
 	
 ' define order  wp1
-	[wpA_1] starts at [wpA]'s start
-	[wpA_2] starts at [wpA_1]'s end
-	[wpA_3] starts at [wpA]'s start
+[wpA_1] starts at [wpA]'s start
+[wpA_2] starts at [wpA_1]'s end
 
-	[wpA_2]->[deliver_literature_study]
+[wpA_2]->[deliver_literature_study]
 	
 	
 ' define coloring of blocks
 ' define order  wp1
 [wpA_1] is colored in DarkOrchid
 [wpA_2] is colored in DarkOrchid
-[wpA_3] is colored in DarkOrchid
-	
+
 @endgantt
