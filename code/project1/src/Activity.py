@@ -8,9 +8,10 @@ import numpy as np
 from .Plot_to_tex import Plot_to_tex as plt_tex
 
 
-class Model_bottom_up:
+class Activity:
     def __init__(self):
         pass
+        
 
     def addTwo(self, x):
         """adds two to the incoming integer and returns the result of the computation."""
