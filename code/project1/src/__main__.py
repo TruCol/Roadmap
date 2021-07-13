@@ -4,7 +4,12 @@ from .Compile_gantt_locally import compile_gantt_locally
 
 print(f"Hi, I'll be running the main code, and I'll let you know when I'm done.")
 project_nr = 1
+
+
 main = Main()
+
+# create gantt chart
+main.create_gantt()
 
 # compile the gantt chart locally
 compile_gantt_locally(main.relative_src_filepath, main.plant_uml_java_filename)

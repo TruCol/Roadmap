@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from .Compile_latex import Compile_latex
+from .Gantt import Gantt
 from .Plot_to_tex import Plot_to_tex as plt_tex
 from .Export_code_to_latex import export_code_to_latex
 
@@ -22,6 +23,10 @@ class Main:
         self.plant_uml_java_filename="plantuml.jar"
         self.relative_src_filepath=f"code/project{self.project_nr}/src/"
         self.relative_plant_uml_java_filepath=f"code/project{self.project_nr}/src/{self.plant_uml_java_filename}"
+
+    def create_gantt(self):
+        gantt=Gantt()
+        exit()
 
     def export_code_to_latex(self, project_nr):
         export_code_to_latex("main.tex", project_nr)

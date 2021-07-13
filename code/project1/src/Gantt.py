@@ -11,12 +11,9 @@ class Gantt:
         self.start_line="@startgantt"
         self.project_start_date="2021/07-22"
         self.closed_days=["saturday","sunday"]
-        self.activities=create_python_gantt()
+        self.parent=create_python_gantt()
         self.end_line="@endgantt"
         
-        
-        
-    def for
 
     def addTwo(self, x):
         """adds two to the incoming integer and returns the result of the computation."""
