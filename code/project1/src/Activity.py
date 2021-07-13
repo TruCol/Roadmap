@@ -11,6 +11,7 @@ class Activity:
         self.description=description
         self.tag=tag
         self.duration=duration
+        self.children=[]
         
         if self.parent is None:
             if colour is None:

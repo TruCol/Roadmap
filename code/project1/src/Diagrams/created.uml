@@ -2,5 +2,21 @@
 project starts the 2021/07-22
 saturday are closed
 sunday are closed
+
 [description] as [L0C0] lasts 5 days
+
+[child one description] as [L1C0] lasts 2 days
+
+[child two description] as [L1C1] lasts 2 days
+
+[L1C0] starts at [L0C0]'s start
+[L1C1] starts at [L1C0]'s end
+
+
+
+[L0C0]  is colored in DarkOrchid
+
+[L1C0]  is colored in DarkOrchid
+
+[L1C1]  is colored in DarkOrchid
 @endgantt

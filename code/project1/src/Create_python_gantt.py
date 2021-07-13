@@ -10,7 +10,7 @@ def create_python_gantt():
     parent=Activity("description", 5, "L0C0", colour="DarkOrchid")
     # children
     child_one=Activity("child one description", 2, "L1C0", parent=parent)
-    child_two=Activity("child two description", 2, "L0C1", parent=parent)
+    child_two=Activity("child two description", 2, "L1C1", parent=parent)
     # merge family
     parent.add_children([child_one,child_two])
 

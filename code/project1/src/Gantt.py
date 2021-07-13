@@ -17,17 +17,49 @@ class Gantt:
         self.write_gantt(filepath,self.lines)
         
     def get_list(self):
-        parent = self.parent
         lines=[]
         lines.append(self.start_line)
         lines.append(f"project starts the {self.project_start_date}")
         lines=self.add_closed_dates(lines)
-        lines.append(f"[{parent.description}] as [{parent.tag}] lasts {parent.duration} days")
+        #lines.append(f"[{parent.description}] as [{parent.tag}] lasts {parent.duration} days")
+        lines = self.print_descriptions(self.parent, lines)
+        lines = self.print_order(self.parent, lines)
+        lines = self.print_colour(self.parent, lines)
+        
         # TODO: specify order
         # TODO: specify colour
         lines.append(self.end_line)
         return lines
         
+    def print_descriptions(self,activity, lines):
+        lines.append("")
+        lines.append(f"[{activity.description}] as [{activity.tag}] lasts {activity.duration} days")
+        for child in activity.children:
+            lines = self.print_descriptions(child, lines)
+        return lines
+        
+    def print_order(self,activity, lines):
+        lines.append("")
+        
+        # Write order for all children in an activity
+        for i in range(0,len(activity.children)):
+            if i == 0:
+                lines.append(f"[{activity.children[i].tag}] starts at [{activity.tag}]'s start")
+            else:
+                lines.append(f"[{activity.children[i].tag}] starts at [{activity.children[i-1].tag}]'s end")
+            
+        # start recursive loop to write order of each of the childeren
+        for child in activity.children:
+            lines = self.print_order(child, lines)
+        return lines
+    
+    def print_colour(self,activity, lines):
+        lines.append("")
+        lines.append(f"[{activity.tag}]  is colored in {activity.colour}")
+        for child in activity.children:
+            lines = self.print_colour(child, lines)
+        return lines
+    
     def add_closed_dates(self, lines):
         for closed_day in self.closed_days:
             lines.append(f"{closed_day} are closed")
