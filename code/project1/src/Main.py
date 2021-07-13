@@ -19,15 +19,17 @@ max_iterations = 1500
 
 class Main:
     def __init__(self):
-        self.project_nr=1
-        self.plant_uml_java_filename="plantuml.jar"
-        self.src_to_gantt_path="Diagrams/created.uml"
-        #self.src_to_gantt_path="Diagrams/example_gantt.uml"
-        self.relative_src_filepath=f"code/project{self.project_nr}/src/"
-        self.relative_plant_uml_java_filepath=f"code/project{self.project_nr}/src/{self.plant_uml_java_filename}"
+        self.project_nr = 1
+        self.plant_uml_java_filename = "plantuml.jar"
+        self.src_to_gantt_path = "Diagrams/created.uml"
+        # self.src_to_gantt_path="Diagrams/example_gantt.uml"
+        self.relative_src_filepath = f"code/project{self.project_nr}/src/"
+        self.relative_plant_uml_java_filepath = (
+            f"code/project{self.project_nr}/src/{self.plant_uml_java_filename}"
+        )
 
     def create_gantt(self):
-        gantt=Gantt(f"{self.relative_src_filepath}/Diagrams/created.uml")
+        gantt = Gantt(f"{self.relative_src_filepath}/Diagrams/created.uml")
 
     def export_code_to_latex(self, project_nr):
         export_code_to_latex("main.tex", project_nr)

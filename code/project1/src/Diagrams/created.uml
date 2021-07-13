@@ -3,20 +3,29 @@ project starts the 2021/07-22
 saturday are closed
 sunday are closed
 
-[description] as [L0C0] lasts 5 days
+[description] as [0] lasts 5 days
+[child one description] as [0_0] lasts 2 days
+[child two description] as [0_1] lasts 2 days
 
-[child one description] as [L1C0] lasts 2 days
+[description two] as [1] lasts 5 days
+[child one description two] as [1_0] lasts 2 days
+[child two description two] as [1_1] lasts 2 days
 
-[child two description] as [L1C1] lasts 2 days
+[0_0] starts at [0]'s start
+[0_1] starts at [0_0]'s end
+[1] starts at [0]'s end
 
-[L1C0] starts at [L0C0]'s start
-[L1C1] starts at [L1C0]'s end
+[1_0] starts at [1]'s start
+[1_1] starts at [1_0]'s end
 
+[0]  is colored in Green
+[0_0]  is colored in Green
+[0_1]  is colored in Green
 
+[1] starts at [0]'s end
 
-[L0C0]  is colored in DarkOrchid
+[1]  is colored in DarkOrchid
+[1_0]  is colored in DarkOrchid
+[1_1]  is colored in DarkOrchid
 
-[L1C0]  is colored in DarkOrchid
-
-[L1C1]  is colored in DarkOrchid
 @endgantt

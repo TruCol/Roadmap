@@ -8,65 +8,101 @@ from .Create_python_gantt import create_python_gantt
 
 class Gantt:
     def __init__(self, filepath):
-        self.start_line="@startgantt"
-        self.project_start_date="2021/07-22"
-        self.closed_days=["saturday","sunday"]
-        self.parent=create_python_gantt()
-        self.end_line="@endgantt"
-        self.lines=self.get_list()
-        self.write_gantt(filepath,self.lines)
-        
+        self.start_line = "@startgantt"
+        self.project_start_date = "2021/07-22"
+        self.closed_days = ["saturday", "sunday"]
+        self.parents = create_python_gantt()
+        self.end_line = "@endgantt"
+        self.lines = self.get_list()
+        self.write_gantt(filepath, self.lines)
+
     def get_list(self):
-        lines=[]
+        lines = []
         lines.append(self.start_line)
         lines.append(f"project starts the {self.project_start_date}")
-        lines=self.add_closed_dates(lines)
-        #lines.append(f"[{parent.description}] as [{parent.tag}] lasts {parent.duration} days")
-        lines = self.print_descriptions(self.parent, lines)
-        lines = self.print_order(self.parent, lines)
-        lines = self.print_colour(self.parent, lines)
-        
-        # TODO: specify order
-        # TODO: specify colour
+        lines = self.add_closed_dates(lines)
+        # lines.append(f"[{parent.description}] as [{parent.get_tag()}] lasts {parent.duration} days")
+        # for parent in self.parents:
+        lines = self.loop_through_parents_printing(lines)
         lines.append(self.end_line)
         return lines
-        
-    def print_descriptions(self,activity, lines):
+
+    def loop_through_parents_printing(self, lines):
+        # print descriptions
+        for i in range(0, len(self.parents)):
+            lines = self.print_parent_descriptions(lines, self.parents[i])
+
+        # print order
+        for i in range(0, len(self.parents)):
+            if i > 0:
+                lines.append(
+                    f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
+                )
+            lines = self.print_parent_order(lines, self.parents[i])
+
+        # print colour
+        for i in range(0, len(self.parents)):
+            if i > 0:
+                lines.append(
+                    f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
+                )
+            lines = self.print_parent_colour(lines, self.parents[i])
+        return lines
+
+    def print_parent_descriptions(self, lines, parent):
         lines.append("")
-        lines.append(f"[{activity.description}] as [{activity.tag}] lasts {activity.duration} days")
+        lines = self.print_descriptions(parent, lines)
+        return lines
+
+    def print_parent_order(self, lines, parent):
+        lines.append("")
+        lines = self.print_order(parent, lines)
+        return lines
+
+    def print_parent_colour(self, lines, parent):
+        lines.append("")
+        lines = self.print_colour(parent, lines)
+        lines.append("")
+        return lines
+
+    def print_descriptions(self, activity, lines):
+        lines.append(
+            f"[{activity.description}] as [{activity.get_tag()}] lasts {activity.duration} days"
+        )
         for child in activity.children:
             lines = self.print_descriptions(child, lines)
         return lines
-        
-    def print_order(self,activity, lines):
-        lines.append("")
-        
+
+    def print_order(self, activity, lines):
         # Write order for all children in an activity
-        for i in range(0,len(activity.children)):
+        for i in range(0, len(activity.children)):
             if i == 0:
-                lines.append(f"[{activity.children[i].tag}] starts at [{activity.tag}]'s start")
+                lines.append(
+                    f"[{activity.children[i].get_tag()}] starts at [{activity.get_tag()}]'s start"
+                )
             else:
-                lines.append(f"[{activity.children[i].tag}] starts at [{activity.children[i-1].tag}]'s end")
-            
+                lines.append(
+                    f"[{activity.children[i].get_tag()}] starts at [{activity.children[i-1].get_tag()}]'s end"
+                )
+
         # start recursive loop to write order of each of the childeren
         for child in activity.children:
             lines = self.print_order(child, lines)
         return lines
-    
-    def print_colour(self,activity, lines):
-        lines.append("")
-        lines.append(f"[{activity.tag}]  is colored in {activity.colour}")
+
+    def print_colour(self, activity, lines):
+        lines.append(f"[{activity.get_tag()}]  is colored in {activity.colour}")
         for child in activity.children:
             lines = self.print_colour(child, lines)
         return lines
-    
+
     def add_closed_dates(self, lines):
         for closed_day in self.closed_days:
             lines.append(f"{closed_day} are closed")
         return lines
-        
+
     def write_gantt(self, filepath, list):
-        with open(filepath, 'w') as f:
+        with open(filepath, "w") as f:
             for item in list:
                 f.write("%s\n" % item)
         f.close()

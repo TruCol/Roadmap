@@ -12,7 +12,9 @@ main = Main()
 main.create_gantt()
 
 # compile the gantt chart locally
-compile_gantt_locally(main.relative_src_filepath, main.plant_uml_java_filename, main.src_to_gantt_path)
+compile_gantt_locally(
+    main.relative_src_filepath, main.plant_uml_java_filename, main.src_to_gantt_path
+)
 exit()
 
 # export the code to latex
