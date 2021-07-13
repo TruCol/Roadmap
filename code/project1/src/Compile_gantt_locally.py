@@ -10,7 +10,10 @@ import os
 from os.path import abspath
 from shutil import copyfile
 
-def compile_gantt_locally():
+def compile_gantt_locally(relative_plant_uml_java_filepath):
+    print(f'relative_plant_uml_java_filepath={relative_plant_uml_java_filepath}')
+    if check_if_java_file_exists(relative_plant_uml_java_filepath):
+        print('FOUND')
     pass
         
     #diagram_dir = "./Diagrams"
@@ -29,4 +32,4 @@ def check_if_java_file_exists(relative_filepath):
     if os.path.isfile(relative_filepath):
         return True
     else:
-        raise IOError(f"File:{relative_filepath} is not accessible")
+        raise Exception(f"File:{relative_filepath} is not accessible")

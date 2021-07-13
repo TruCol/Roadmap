@@ -1,5 +1,8 @@
 *.pyc
 
+# plantuml
+*plantuml.jar
+
 # latex/
 *.aux
 *.bbl

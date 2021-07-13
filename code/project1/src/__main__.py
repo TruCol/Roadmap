@@ -7,7 +7,7 @@ project_nr = 1
 main = Main()
 
 # compile the gantt chart locally
-compile_gantt_locally()
+compile_gantt_locally(main.relative_plant_uml_java_filepath)
 
 # export the code to latex
 main.export_code_to_latex(project_nr)
