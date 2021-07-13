@@ -6,7 +6,12 @@ from .Activity import Activity
 
 
 def create_python_gantt():
-    activity=
+    #activity=Activity(description, duration,  children=None,color=None, parent=None,starts_at_child_nr_start=None,starts_at_child_nr_end=None)
+    
+    # parent
+    activity=Activity(description, duration)
+    # children
+    activity=Activity(description, duration)
     
 
 def addTwo(self, x):
