@@ -2,30 +2,54 @@
 project starts the 2021/07-22
 saturday are closed
 sunday are closed
+skinparam noteFontSize 100
 
-[description] as [0] lasts 5 days
-[child one description] as [0_0] lasts 2 days
-[child two description] as [0_1] lasts 2 days
+[<size:44>Develop protocol] as [0] lasts 120 days
+[<LineStyle:44>On-chain] as [0_0] lasts 30 days
+[Oracle and continuous integration] as [0_1_0] lasts 30 days
+[Security & Robustness] as [0_2] lasts 60 days
 
-[description two] as [1] lasts 5 days
-[child one description two] as [1_0] lasts 2 days
-[child two description two] as [1_1] lasts 2 days
+[Platform & ecosystem] as [1] lasts 120 days
+[API] as [1_0] lasts 50 days
+[Subsidize bounties] as [1_1] lasts 7 days
+[Marketing platform] as [1_2] lasts 30 days
+
+[Launch consultancy] as [2] lasts 150 days
+[Approach new partners] as [2_0] lasts 20 days
+[Marketing consultancy] as [2_1] lasts 30 days
+[Registrations/admin/legal] as [2_2] lasts 60 days
 
 [0_0] starts at [0]'s start
-[0_1] starts at [0_0]'s end
+[0_1_0] starts at [0_0]'s end
+[0_2] starts at [0_1_0]'s end
 [1] starts at [0]'s end
 
 [1_0] starts at [1]'s start
 [1_1] starts at [1_0]'s end
+[1_2] starts at [1_1]'s end
+[2] starts at [1]'s end
+
+[2_0] starts at [2]'s start
+[2_1] starts at [2_0]'s end
+[2_2] starts at [2_1]'s end
 
 [0]  is colored in Green
 [0_0]  is colored in Green
-[0_1]  is colored in Green
+[0_1_0]  is colored in Green
+[0_2]  is colored in Green
 
 [1] starts at [0]'s end
 
 [1]  is colored in DarkOrchid
 [1_0]  is colored in DarkOrchid
 [1_1]  is colored in DarkOrchid
+[1_2]  is colored in DarkOrchid
+
+[2] starts at [1]'s end
+
+[2]  is colored in Yellow
+[2_0]  is colored in Yellow
+[2_1]  is colored in Yellow
+[2_2]  is colored in Yellow
 
 @endgantt

@@ -11,6 +11,10 @@ class Gantt:
         self.start_line = "@startgantt"
         self.project_start_date = "2021/07-22"
         self.closed_days = ["saturday", "sunday"]
+        #self.font_size="skinparam classFontSize 100"
+        self.font_size="skinparam noteFontSize 100"
+        #self.font_size="skinparam defaultFontSize  100"
+
         self.parents = create_python_gantt()
         self.end_line = "@endgantt"
         self.lines = self.get_list()
@@ -21,6 +25,7 @@ class Gantt:
         lines.append(self.start_line)
         lines.append(f"project starts the {self.project_start_date}")
         lines = self.add_closed_dates(lines)
+        lines.append(self.font_size)
         # lines.append(f"[{parent.description}] as [{parent.get_tag()}] lasts {parent.duration} days")
         # for parent in self.parents:
         lines = self.loop_through_parents_printing(lines)
