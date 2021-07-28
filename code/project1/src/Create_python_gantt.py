@@ -32,13 +32,13 @@ def create_python_gantt():
 
     ## parent
     # parent one
-    protocol = Activity(description="<size:44>Develop protocol", duration=120, new_tag=0, colour="Green")
+    protocol = Activity(description="<size:144>Develop protocol", duration=120, new_tag=0, colour="Green")
     # children
     #onchain = Activity(description="<height:44>On-chain", duration=30, new_tag=0, parent=protocol)
     #onchain = Activity(description="<padding:44>On-chain", duration=30, new_tag=0, parent=protocol)
     #onchain = Activity(description="<margin:44>On-chain", duration=30, new_tag=0, parent=protocol)
-    onchain = Activity(description="<LineThickness:44>On-chain", duration=30, new_tag=0, parent=protocol)
-    onchain = Activity(description="<LineStyle:44>On-chain", duration=30, new_tag=0, parent=protocol)
+    #onchain = Activity(description="<LineThickness:44>On-chain", duration=30, new_tag=0, parent=protocol)
+    onchain = Activity(description="<size:144>On-chain", duration=30, new_tag=0, parent=protocol)
     git = Activity(description="Git integration", duration=60,  new_tag=1,parent=protocol)
     security = Activity(description="Security & Robustness", duration=60,  new_tag=2, parent=protocol)
     # grandchildren

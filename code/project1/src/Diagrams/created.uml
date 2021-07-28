@@ -4,8 +4,8 @@ saturday are closed
 sunday are closed
 skinparam noteFontSize 100
 
-[<size:44>Develop protocol] as [0] lasts 120 days
-[<LineStyle:44>On-chain] as [0_0] lasts 30 days
+[<size:144>Develop protocol] as [0] lasts 120 days
+[<size:144>On-chain] as [0_0] lasts 30 days
 [Oracle and continuous integration] as [0_1_0] lasts 30 days
 [Security & Robustness] as [0_2] lasts 60 days
 
