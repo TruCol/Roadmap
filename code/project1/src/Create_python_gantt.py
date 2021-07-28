@@ -52,10 +52,17 @@ def create_python_gantt():
     # parent_two
     platform_eco = Activity(description="Platform & ecosystem", duration=120, new_tag=1, colour="DarkOrchid",starts_at_child_nr_start=0)
     # children
-    api = Activity(description="API", duration=50, new_tag=0, parent=platform_eco)
-    bounties = Activity(description="Subsidize bounties", duration=7, new_tag=1, parent=platform_eco)
-    marketing_platf = Activity(description="Marketing platform", duration=30, new_tag=2, parent=platform_eco)
-    platform_eco.add_children([api,bounties,marketing_platf])
+    website = Activity(description="Website", duration=50, new_tag=0, parent=platform_eco)
+    marketing_platf = Activity(description="Marketing platform", duration=30, new_tag=1, parent=platform_eco)
+    bounties = Activity(description="Subsidize bounties", duration=7, new_tag=2, parent=platform_eco)
+    
+    # Grandchildren
+    api = Activity(description="API", duration=50, new_tag=0, parent=website)
+    gui = Activity(description="GUI", duration=50, new_tag=1, parent=website,starts_at_child_nr_start=0)
+    forum = Activity(description="Forum", duration=10, new_tag=2, parent=website, starts_at_child_nr_start=0)
+    website.add_children([api, gui, forum])
+    
+    platform_eco.add_children([website,marketing_platf,bounties])
     parents.append(platform_eco)
     
     # parent_three
