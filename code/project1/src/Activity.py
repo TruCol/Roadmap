@@ -23,15 +23,15 @@ class Activity:
         self.duration = duration
         self.children = []
         self.font_size=None
-
+        self.starts_at_child_nr_start=starts_at_child_nr_start
+        self.starts_at_child_nr_end=starts_at_child_nr_end
+        
         if self.parent is None:
             if colour is None:
                 raise Exception("Parent activity needs a colour")
             self.colour = colour
             self.tag = []
         else:
-            self.starts_at_child_nr_start = starts_at_child_nr_start
-            self.starts_at_child_nr_end = starts_at_child_nr_end
             self.colour = parent.colour
             self.tag = copy.deepcopy(self.parent.tag)
             # self.tag=self.parent.tag

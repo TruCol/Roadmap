@@ -5,9 +5,14 @@ sunday are closed
 skinparam classFontSize 100
 
 [<size:60>Develop protocol] as [0] lasts 120 days
-[<size:60>On-chain] as [0_0] lasts 30 days
-[<size:60>Oracle and continuous integration] as [0_1_0] lasts 30 days
-[<size:60>Security & Robustness] as [0_2] lasts 60 days
+[<size:60>On-chain: Solidty+VRF] as [0_0] lasts 60 days
+[<size:60>Git integration: Tellor] as [0_1] lasts 90 days
+[<size:60>Git integration: Chainlink] as [0_2] lasts 90 days
+[<size:60>(Decentralised) Continuous integration] as [0_2_0] lasts 30 days
+[<size:60>Security & Robustness] as [0_2_1] lasts 60 days
+[<size:60>(Decentralised) Continuous integration] as [0_2_0] lasts 30 days
+[<size:60>Security & Robustness] as [0_2_1] lasts 60 days
+[<size:60>Security & Robustness] as [0_2_1] lasts 60 days
 
 [<size:60>Platform & ecosystem] as [1] lasts 120 days
 [<size:60>API] as [1_0] lasts 50 days
@@ -20,14 +25,19 @@ skinparam classFontSize 100
 [<size:60>Registrations/admin/legal] as [2_2] lasts 60 days
 
 [0_0] starts at [0]'s start
-[0_1_0] starts at [0_0]'s end
-[0_2] starts at [0_1_0]'s end
-[1] starts at [0]'s end
+[0_1] starts at [0]'s start
+[0_2] starts at [0]'s start
+[0_2_0] starts at [0_2]'s end
+[0_2_1] starts at [0_2_0]'s end
+[0_2_0] starts at [0_2]'s start
+[0_2_1] starts at [0_2_0]'s start
+[0_2_1] starts at [0_2_0]'s start
+[1] starts at [0]'s start
 
 [1_0] starts at [1]'s start
 [1_1] starts at [1_0]'s end
 [1_2] starts at [1_1]'s end
-[2] starts at [1]'s end
+[2] starts at [0]'s start
 
 [2_0] starts at [2]'s start
 [2_1] starts at [2_0]'s end
@@ -35,17 +45,20 @@ skinparam classFontSize 100
 
 [0]  is colored in Green
 [0_0]  is colored in Green
-[0_1_0]  is colored in Green
+[0_1]  is colored in Green
 [0_2]  is colored in Green
+[0_2_0]  is colored in Green
+[0_2_1]  is colored in Green
+[0_2_0]  is colored in Green
+[0_2_1]  is colored in Green
+[0_2_1]  is colored in Green
 
-[1] starts at [0]'s end
 
 [1]  is colored in DarkOrchid
 [1_0]  is colored in DarkOrchid
 [1_1]  is colored in DarkOrchid
 [1_2]  is colored in DarkOrchid
 
-[2] starts at [1]'s end
 
 [2]  is colored in Yellow
 [2_0]  is colored in Yellow

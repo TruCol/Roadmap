@@ -41,17 +41,24 @@ class Gantt:
         # print order
         for i in range(0, len(self.parents)):
             if i > 0:
-                lines.append(
-                    f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
-                )
+                if not self.parents[i].starts_at_child_nr_start is None:
+                    #print(f'starting parent at:{self.parents[i].starts_at_child_nr_start}')
+                    lines.append(
+                        f"[{self.parents[i].get_tag()}] starts at [{self.parents[i].starts_at_child_nr_start}]'s start"
+                    )
+                else:
+                    print(f'parent_descr={self.parents[i].description}, and starts at {self.parents[i].starts_at_child_nr_start} and  tag={self.parents[i].get_tag()}, writing end')
+                    lines.append(
+                        f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
+                    )
             lines = self.print_parent_order(lines, self.parents[i])
 
         # print colour
         for i in range(0, len(self.parents)):
-            if i > 0:
-                lines.append(
-                    f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
-                )
+            #if i > 0:
+                #lines.append(
+                #    f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
+                #)
             lines = self.print_parent_colour(lines, self.parents[i])
         return lines
 
@@ -92,9 +99,17 @@ class Gantt:
                     f"[{activity.children[i].get_tag()}] starts at [{activity.get_tag()}]'s start"
                 )
             else:
-                lines.append(
-                    f"[{activity.children[i].get_tag()}] starts at [{activity.children[i-1].get_tag()}]'s end"
-                )
+                # check if it starts at the start or end of some activity
+                if not activity.children[i].starts_at_child_nr_start is None:
+                    #print(f'activity.description={activity.description}, appending at  {activity.children[i].starts_at_child_nr_start}s  start')
+                    lines.append(
+                        f"[{activity.children[i].get_tag()}] starts at [{activity.children[i].starts_at_child_nr_start}]'s start"
+                    )
+                else: 
+                    #print(f'activity.description={activity.description}, appending at  {activity.children[i-1].get_tag()}s  end')
+                    lines.append(
+                        f"[{activity.children[i].get_tag()}] starts at [{activity.children[i-1].get_tag()}]'s end"
+                    )
 
         # start recursive loop to write order of each of the childeren
         for child in activity.children:
