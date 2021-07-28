@@ -2,22 +2,22 @@
 project starts the 2021/07-22
 saturday are closed
 sunday are closed
-skinparam noteFontSize 100
+skinparam classFontSize 100
 
-[<size:144>Develop protocol] as [0] lasts 120 days
-[<size:144>On-chain] as [0_0] lasts 30 days
-[Oracle and continuous integration] as [0_1_0] lasts 30 days
-[Security & Robustness] as [0_2] lasts 60 days
+[<size:60>Develop protocol] as [0] lasts 120 days
+[<size:60>On-chain] as [0_0] lasts 30 days
+[<size:60>Oracle and continuous integration] as [0_1_0] lasts 30 days
+[<size:60>Security & Robustness] as [0_2] lasts 60 days
 
-[Platform & ecosystem] as [1] lasts 120 days
-[API] as [1_0] lasts 50 days
-[Subsidize bounties] as [1_1] lasts 7 days
-[Marketing platform] as [1_2] lasts 30 days
+[<size:60>Platform & ecosystem] as [1] lasts 120 days
+[<size:60>API] as [1_0] lasts 50 days
+[<size:60>Subsidize bounties] as [1_1] lasts 7 days
+[<size:60>Marketing platform] as [1_2] lasts 30 days
 
-[Launch consultancy] as [2] lasts 150 days
-[Approach new partners] as [2_0] lasts 20 days
-[Marketing consultancy] as [2_1] lasts 30 days
-[Registrations/admin/legal] as [2_2] lasts 60 days
+[<size:60>Launch consultancy] as [2] lasts 150 days
+[<size:60>Approach new partners] as [2_0] lasts 20 days
+[<size:60>Marketing consultancy] as [2_1] lasts 30 days
+[<size:60>Registrations/admin/legal] as [2_2] lasts 60 days
 
 [0_0] starts at [0]'s start
 [0_1_0] starts at [0_0]'s end

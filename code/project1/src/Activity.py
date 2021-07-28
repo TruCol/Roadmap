@@ -16,11 +16,13 @@ class Activity:
         parent=None,
         starts_at_child_nr_start=None,
         starts_at_child_nr_end=None,
+        font_size=None
     ):
         self.parent = parent
         self.description = description
         self.duration = duration
         self.children = []
+        self.font_size=None
 
         if self.parent is None:
             if colour is None:
