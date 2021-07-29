@@ -32,12 +32,12 @@ def create_python_gantt():
 
     ## parent
     # parent one
-    protocol = Activity(description="Develop protocol", duration=120, new_tag=0, colour="Green")
+    protocol = Activity(description="Develop protocol", duration=120, new_tag=0, colour="Green",hourly_wage=0)
     # children
-    onchain = Activity(description="On-chain: Solidty+VRF", duration=60, new_tag=0, parent=protocol)
-    git_tellor = Activity(description="Git integration: Tellor", duration=90,  new_tag=1,parent=protocol,starts_at_child_nr_start=0)
-    git_chainlink = Activity(description="Git integration: Chainlink", duration=90,  new_tag=2,parent=protocol,starts_at_child_nr_start=0)
-    alt_chains = Activity(description="Alternative Chains", duration=90,  new_tag=3,parent=protocol,starts_at_child_nr_start=0)
+    onchain = Activity(description="On-chain: Solidty+VRF", duration=60, new_tag=0, parent=protocol,hourly_wage=75)
+    git_tellor = Activity(description="Git integration: Tellor", duration=90,  new_tag=1,parent=protocol,starts_at_child_nr_start=0,hourly_wage=75)
+    git_chainlink = Activity(description="Git integration: Chainlink", duration=90,  new_tag=2,parent=protocol,starts_at_child_nr_start=0,hourly_wage=75)
+    alt_chains = Activity(description="Alternative Chains", duration=90,  new_tag=3,parent=protocol,starts_at_child_nr_start=0,hourly_wage=75)
     
     # grandchildren
     ci = Activity(description="(Decentralised) Continuous integration",  new_tag=0, duration=30, parent=git_chainlink)
@@ -51,7 +51,7 @@ def create_python_gantt():
     
     
     # parent_two
-    platform_eco = Activity(description="Platform & ecosystem", duration=120, new_tag=1, colour="DarkOrchid",starts_at_child_nr_start=0)
+    platform_eco = Activity(description="Platform & ecosystem", duration=120, new_tag=1, colour="DarkOrchid",starts_at_child_nr_start=0,hourly_wage=40)
     # children
     website = Activity(description="Website", duration=50, new_tag=0, parent=platform_eco)
     marketing_platf = Activity(description="Marketing platform", duration=30, new_tag=1, parent=platform_eco)
@@ -68,7 +68,7 @@ def create_python_gantt():
     parents.append(platform_eco)
     
     # parent_three
-    company = Activity(description="Launch company", duration=150, new_tag=2, colour="Yellow",starts_at_child_nr_start=0)
+    company = Activity(description="Launch company", duration=150, new_tag=2, colour="Yellow",starts_at_child_nr_start=0, hourly_wage=35)
     # children
     partners = Activity(description="Qualitative partner research", duration=20, new_tag=0, parent=company)
     organisation = Activity(description="Establish organisation", duration=80, new_tag=1, parent=company)

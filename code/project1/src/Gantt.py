@@ -20,6 +20,8 @@ class Gantt:
         self.end_line = "@endgantt"
         self.lines = self.get_list()
         self.write_gantt(filepath, self.lines)
+        
+        self.costs = None
 
     def get_list(self):
         lines = []
@@ -55,11 +57,12 @@ class Gantt:
 
         # print colour
         for i in range(0, len(self.parents)):
-            #if i > 0:
-                #lines.append(
-                #    f"[{self.parents[i].get_tag()}] starts at [{self.parents[i-1].get_tag()}]'s end"
-                #)
             lines = self.print_parent_colour(lines, self.parents[i])
+        
+        # compute costs
+        total_costs = 0
+        for i in range(0, len(self.parents)):
+            total_costs, lines = self.print_parent_costs(total_costs, lines, self.parents[i])
         return lines
 
     def print_parent_descriptions(self, lines, parent):
@@ -77,6 +80,13 @@ class Gantt:
         lines = self.print_colour(parent, lines)
         lines.append("")
         return lines
+        
+    def print_parent_costs(self, total_costs, lines, parent):
+        lines.append("")
+        total_costs, lines = self.print_costs(total_costs, parent, lines)
+        print(f'total_costs={total_costs}')
+        lines.append("")
+        return total_costs, lines
 
     def print_descriptions(self, activity, lines):
         
@@ -121,6 +131,13 @@ class Gantt:
         for child in activity.children:
             lines = self.print_colour(child, lines)
         return lines
+        
+    def print_costs(self, total_costs, activity, lines):
+        lines.append(f"'[{activity.description}]  takes: {activity.duration}[days] equating to:{activity.duration*activity.hours_per_day}[hours] and costs: {activity.hourly_wage} per hour, yielding activity costs: {activity.duration*activity.hours_per_day*activity.hourly_wage} Euros.")
+        total_costs=total_costs+activity.duration*activity.hours_per_day*activity.hourly_wage
+        for child in activity.children:
+            total_costs, lines = self.print_costs(total_costs, child, lines)
+        return total_costs, lines
 
     def add_closed_dates(self, lines):
         for closed_day in self.closed_days:
