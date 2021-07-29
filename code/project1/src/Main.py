@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 from matplotlib import lines
 import matplotlib.pyplot as plt
 import numpy as np
+import shutil
 
 from .Compile_latex import Compile_latex
 from .Gantt import Gantt
@@ -21,6 +22,7 @@ class Main:
     def __init__(self):
         self.project_nr = 1
         self.plant_uml_java_filename = "plantuml.jar"
+        self.src_to_gantt_image_path="Diagrams/created.png"
         self.src_to_gantt_path = "Diagrams/created.uml"
         # self.src_to_gantt_path="Diagrams/example_gantt.uml"
         self.relative_src_filepath = f"code/project{self.project_nr}/src/"
@@ -30,6 +32,18 @@ class Main:
 
     def create_gantt(self):
         gantt = Gantt(f"{self.relative_src_filepath}/Diagrams/created.uml")
+    
+    def export_gantt_to_latex(self):
+        try:
+        #shutil.move(src_to_gantt_image_path, f'latex/project{self.project_nr}/Images/')
+            print(f'{self.relative_src_filepath}{self.src_to_gantt_image_path}')
+            print(f'to:latex/project{self.project_nr}/Images/')
+            shutil.copy(f'{self.relative_src_filepath}{self.src_to_gantt_image_path}', f'latex/project{self.project_nr}/Images/')
+        #shutil.move(f'{self.relative_src_filepath}{self.src_to_gantt_image_path}', f'latex/project{self.project_nr}/Images/')
+        #shutil.copy(f'{self.relative_src_filepath}{self.src_to_gantt_image_path}', f'latex/project{self.project_nr}/Images/')
+        except:
+            print("Error while moving file ", self.src_to_gantt_image_path)
+        #    exit()
 
     def export_code_to_latex(self, project_nr):
         export_code_to_latex("main.tex", project_nr)
