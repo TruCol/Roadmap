@@ -12,7 +12,7 @@ class Gantt:
         self.project_start_date = "2021/07-22"
         self.closed_days = ["saturday", "sunday"]
         self.gantt_font_size="skinparam classFontSize 100"
-        self.box_font_size="60"
+        self.box_font_size="30"
         
         #self.font_size="skinparam defaultFontSize  100"
 
