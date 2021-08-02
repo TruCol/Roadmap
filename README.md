@@ -1,6 +1,6 @@
 # TruCol Market Analysis [![Build Status](https://travis-ci.com/a-t-0/Code-LatexReportTemplate.svg?branch=main)](https://travis-ci.com/a-t-0/Code-LatexReportTemplate)
 
-Hi, this is a our roadmap for the TruCol company. By sharing our model we hope to be able to provide more insight in our analysis and to improve its accuracy based on the provided feedback. This repository enables you to automatically updates your pdf report every time you run your code. It also syncs with Overleaf so you can do your typing there.
+Hi, this is a our roadmap and cost-estimates for the development of a healthy TruCol company. The roadmap consists of a Gantt chart and accompanying elaboration, which are both contained in a single pdf along with the cost estimate. By sharing the code used to generate Gantt chart and cost estimate, we hope to be able to provide more insight in our approach and to improve its accuracy based on the provided feedback. This repository enables you to automatically updates your pdf report every time you run your code. It also syncs with Overleaf so you can do your typing there if you wish.
 
 Our latest roadmap is visible [here](https://github.com/TruCol/Roadmap/blob/master/latex/project1/main.pdf) (refresh page once).
 
@@ -20,7 +20,7 @@ conda env create --file environment.yml
 
 3. Activate the conda environment you created:
 ```
-conda activate example_env
+conda activate roadmap
 ```
 
 ## Usage: do every run:
