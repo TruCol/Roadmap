@@ -2,7 +2,7 @@
 
 Hi, this is a our roadmap for the TruCol company. By sharing our model we hope to be able to provide more insight in our analysis and to improve its accuracy based on the provided feedback. This repository enables you to automatically updates your pdf report every time you run your code. It also syncs with Overleaf so you can do your typing there.
 
-Our latest roadmap is visible here:
+Our latest roadmap is visible [here](https://github.com/TruCol/Roadmap/blob/master/latex/project1/main.pdf) (refresh page once).
 
 ## Usage: do once
 Download/clone this repository.
