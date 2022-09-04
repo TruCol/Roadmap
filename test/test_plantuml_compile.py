@@ -1,11 +1,20 @@
 import os
 import unittest
 
-from src.export_data.helper_dir_file_edit import *
+from src.export_data.helper_dir_file_edit import (
+    create_dir_relative_to_root_if_not_exists,
+    delete_dir_relative_to_root_if_not_exists,
+    dir_relative_to_root_exists,
+)
 from src.export_data.plantuml_compile import (
     compile_diagrams_in_dir_relative_to_root,
 )
-from src.export_data.plantuml_generate import *
+from src.export_data.plantuml_generate import (
+    create_trivial_gantt,
+    output_diagram_text_file,
+)
+
+# from src.export_data.plantuml_generate import *
 
 # export_data.import testbook
 
@@ -18,7 +27,8 @@ class Test_main(unittest.TestCase):
         self.script_dir = self.get_script_dir()
         self.project_name = "Whitepaper"
 
-    # returns the directory of this script regardles of from which level the code is executed
+    # returns the directory of this script regardles of from which level
+    # the code is executed
     def get_script_dir(self):
         return os.path.dirname(__file__)
 
