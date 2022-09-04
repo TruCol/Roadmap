@@ -1,13 +1,8 @@
 # Specify hardcoded output data.
-from .latex_export_code import export_code_to_latex
-from .latex_compile import compile_latex
-from .plantuml_generate import generate_all_dynamic_diagrams
-from .plantuml_compile import compile_diagrams_in_dir_relative_to_root
-from .plantuml_to_tex import export_diagrams_to_latex
 
 
 class Hardcoded_data:
-    """ """
+    """"""
 
     def __init__(self):
 
@@ -41,7 +36,9 @@ class Hardcoded_data:
         ]
 
         self.manual_appendices_filename = "manual_appendices.tex"
-        self.manual_appendices_filename_from_root = "manual_appendices_from_root.tex"
+        self.manual_appendices_filename_from_root = (
+            "manual_appendices_from_root.tex"
+        )
         self.manual_appendices_manager_filenames = [
             self.manual_appendices_filename,
             self.manual_appendices_filename_from_root,
@@ -54,10 +51,10 @@ class Hardcoded_data:
 
         # Specify paths relative to root.
         self.path_to_export_data_from_root = f"src/{self.export_data_dirname}"
-        self.jar_path_relative_from_root = (
-            f"{self.path_to_export_data_from_root}/{self.plant_uml_java_filename}"
+        self.jar_path_relative_from_root = f"{self.path_to_export_data_from_root}/{self.plant_uml_java_filename}"
+        self.diagram_output_dir_relative_to_root = (
+            f"latex/Images/{self.diagram_dir}"
         )
-        self.diagram_output_dir_relative_to_root = f"latex/images/{self.diagram_dir}"
 
         # Path related variables
         self.append_export_code_to_latex = True

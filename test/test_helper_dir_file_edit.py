@@ -1,6 +1,11 @@
-import unittest
 import os
-from src.export_data.helper_dir_file_edit import create_dir_relative_to_root_if_not_exists, delete_dir_relative_to_root_if_not_exists, dir_relative_to_root_exists
+import unittest
+
+from src.export_data.helper_dir_file_edit import (
+    create_dir_relative_to_root_if_not_exists,
+    delete_dir_relative_to_root_if_not_exists,
+    dir_relative_to_root_exists,
+)
 
 # import testbook
 
@@ -9,7 +14,7 @@ class Test_main(unittest.TestCase):
 
     # Initialize test object
     def __init__(self, *args, **kwargs):
-        super(Test_main, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.script_dir = self.get_script_dir()
         self.project_name = "Whitepaper"
 
@@ -19,15 +24,19 @@ class Test_main(unittest.TestCase):
 
     def test_dir_relative_to_root_is_created_and_deleted(self):
         dynamic_diagram_dir_relative_to_root = (
-            f"latex/{self.project_name}/images/Diagrams/Dynamic_diagrams"
+            f"latex/{self.project_name}/Images/Diagrams/Dynamic_diagrams"
         )
-        create_dir_relative_to_root_if_not_exists(dynamic_diagram_dir_relative_to_root)
+        create_dir_relative_to_root_if_not_exists(
+            dynamic_diagram_dir_relative_to_root
+        )
         self.assertTrue(
             dir_relative_to_root_exists(dynamic_diagram_dir_relative_to_root)
         )
 
         # Cleanup after
-        delete_dir_relative_to_root_if_not_exists(dynamic_diagram_dir_relative_to_root)
+        delete_dir_relative_to_root_if_not_exists(
+            dynamic_diagram_dir_relative_to_root
+        )
         self.assertFalse(
             dir_relative_to_root_exists(dynamic_diagram_dir_relative_to_root)
         )
