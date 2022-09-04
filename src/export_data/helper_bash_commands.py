@@ -1,4 +1,4 @@
-import subprocess
+import subprocess  # nosec
 
 
 def run_a_bash_command(await_compilation, bash_command, verbose):
@@ -10,21 +10,21 @@ def run_a_bash_command(await_compilation, bash_command, verbose):
     """
     if await_compilation:
         if verbose:
-            subprocess.call(bash_command, shell=True)
+            subprocess.call(bash_command, shell=True)  # nosec
         else:
             subprocess.call(
                 bash_command,
-                shell=True,
+                shell=True,  # nosec
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
             )
     else:
         if verbose:
-            subprocess.Popen(bash_command, shell=True)
+            subprocess.Popen(bash_command, shell=True)  # nosec
         else:
             subprocess.Popen(
                 bash_command,
-                shell=True,
+                shell=True,  # nosec
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
             )

@@ -1,6 +1,6 @@
 # Downloads the PlantUML package if it does not yet exist.
 import os
-import subprocess
+import subprocess  # nosec
 
 
 def check_if_java_file_exists(relative_filepath):
@@ -88,7 +88,7 @@ def run_bash_command(bashCommand):
 
     # Await completion:
     # Verbose call.
-    subprocess.call(bashCommand, shell=True)
+    subprocess.call(bashCommand, shell=True)  # nosec
     # Silent call.
     # subprocess.call(bashCommand, shell=True, stderr=subprocess.DEVNULL,
     # stdout=subprocess.DEVNULL)

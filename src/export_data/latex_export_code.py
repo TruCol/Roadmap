@@ -22,7 +22,7 @@ def export_code_to_latex(hd, include_export_code):
     notebooks into the latex of the same project number. First it scans which
     appendices (without code, without notebooks) are already manually included
     in the main latex code. Next, all appendices that contain the python code
-    are eiter found or created in the following order: First, the __main__.py
+    are either found or created in the following order: First, the __main__.py
     file is included, followed by the main.py file, followed by all python code
     files in alphabetic order. After this, all the pdfs of the compiled
     notebooks are added in alphabetic order of filename. This order of

@@ -7,7 +7,7 @@
 # java -jar plantuml.jar -verbose sequenceDiagram.txt
 
 import os
-import subprocess
+import subprocess  # nosec
 from os.path import abspath
 
 from src.export_data.helper_dir_file_edit import (
@@ -119,21 +119,25 @@ def execute_diagram_compilation_command(
     # Perform PlantUML compilation locally.
     if await_compilation:
         if verbose:
-            subprocess.call(bash_diagram_compilation_command, shell=True)
+            subprocess.call(
+                bash_diagram_compilation_command, shell=True  # nosec B602
+            )
         else:
             subprocess.call(
                 bash_diagram_compilation_command,
-                shell=True,
+                shell=True,  # nosec
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
-            )
+            )  # nosec
     else:
         if verbose:
-            subprocess.Popen(bash_diagram_compilation_command, shell=True)
+            subprocess.Popen(
+                bash_diagram_compilation_command, shell=True  # nosec
+            )
         else:
             subprocess.Popen(
                 bash_diagram_compilation_command,
-                shell=True,
+                shell=True,  # nosec
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
             )
