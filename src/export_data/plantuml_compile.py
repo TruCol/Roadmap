@@ -10,7 +10,10 @@ import os
 import subprocess
 from os.path import abspath
 
-from .helper_dir_file_edit import get_dir_filelist_based_on_extension
+from src.export_data.helper_dir_file_edit import (
+    get_dir_filelist_based_on_extension,
+)
+
 from .plantuml_get_package import got_java_file
 
 

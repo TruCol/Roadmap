@@ -2,8 +2,15 @@
 import os
 import unittest
 
-from src.export_data.helper_dir_file_edit import create_dir_relative_to_root_if_not_exists, delete_dir_relative_to_root_if_not_exists, dir_relative_to_root_exists
-from src.export_data.plantuml_generate import create_trivial_gantt, output_diagram_text_file
+from src.export_data.helper_dir_file_edit import (
+    create_dir_relative_to_root_if_not_exists,
+    delete_dir_relative_to_root_if_not_exists,
+    dir_relative_to_root_exists,
+)
+from src.export_data.plantuml_generate import (
+    create_trivial_gantt,
+    output_diagram_text_file,
+)
 
 
 class Test_main(unittest.TestCase):

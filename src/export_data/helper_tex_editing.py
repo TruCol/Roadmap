@@ -1,6 +1,6 @@
 import os
 
-from .helper_dir_file_edit import (
+from src.export_data.helper_dir_file_edit import (
     append_line_to_file,
     append_lines_to_file,
     convert_filepath_to_filepath_from_root,
