@@ -21,7 +21,8 @@ def compile_diagrams_in_dir_relative_to_root(
     input_dir_relative_to_root,
     verbose,
 ):
-    """Loops through the files in a directory and exports them to the latex
+    """Loops through the files in a directory and exports them to the latex.
+
     /Images directory.
 
     Args:
@@ -32,7 +33,8 @@ def compile_diagrams_in_dir_relative_to_root(
     PlantUML .jar file that compiles .uml files to .png files.
     :param verbose: True, ensures compilation output is printed to terminal,
     False means compilation is silent.
-    :param extension: The file extension that is used/searched in this function.
+    :param extension: The file extension that is used/searched in this
+    function.
     :param input_dir_relative_to_root: The directory as seen from root
     containing files that are modified in this function.
 
@@ -165,7 +167,7 @@ def assert_diagram_compilation_requirements(
             return abs_diagram_filepath, abs_jar_path
         else:
             raise Exception(
-                f"The input diagram file:{abs_diagram_filepath} does not exist."
+                f"The input diagram file:{abs_diagram_filepath} doesn't exist."
             )
     else:
         raise Exception(f"The input jar file:{abs_jar_path} does not exist.")

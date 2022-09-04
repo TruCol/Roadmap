@@ -47,6 +47,8 @@ repos:
    rev: v2.1.0
    hooks:
     - id: codespell
+      #args: [-I latex/references.bib, "--uri-ignore-words-list chips"]
+      #args: [-I codespell/ignore_references_bib.txt]
 
 # Performs static code analysis to check for programming errors.
  - repo: local

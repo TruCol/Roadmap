@@ -1,5 +1,5 @@
 # Entry point for this project, runs the project code and exports data if
-# export commmands are given to the cli command that invokes this script.
+# export commands are given to the cli command that invokes this script.
 
 
 # Project code imports.
