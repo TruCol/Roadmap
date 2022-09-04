@@ -1,10 +1,9 @@
 # Data export imports.
-from .Hardcoded_data import Hardcoded_data
-
 from .create_dynamic_diagrams import create_dynamic_diagrams
 from .create_static_diagrams import create_static_diagrams
-from .latex_export_code import export_code_to_latex
+from .Hardcoded_data import Hardcoded_data
 from .latex_compile import compile_latex
+from .latex_export_code import export_code_to_latex
 
 
 def export_data(args):

@@ -1,16 +1,16 @@
 # This script generates PlantUML diagrams and outputs them as .uml files.
 
 import os
-import subprocess
 from os.path import abspath
 
-from .helper_dir_file_edit import create_dir_relative_to_root_if_not_exists
-from .helper_dir_file_edit import dir_relative_to_root_exists
+from .helper_dir_file_edit import (
+    create_dir_relative_to_root_if_not_exists,
+    dir_relative_to_root_exists,
+)
 
 
 def generate_all_dynamic_diagrams(output_dir_relative_to_root):
-    """
-    Manages the generation of all the diagrams created in this file.
+    """Manages the generation of all the diagrams created in this file.
 
     Args:
     :param output_dir_relative_to_root: Relative path as seen from the root dir of this project, to which modified files are outputted.
@@ -22,7 +22,9 @@ def generate_all_dynamic_diagrams(output_dir_relative_to_root):
     """
     # Create a example Gantt output file.
     filename_one, lines_one = create_trivial_gantt("trivial_gantt.uml")
-    output_diagram_text_file(filename_one, lines_one, output_dir_relative_to_root)
+    output_diagram_text_file(
+        filename_one, lines_one, output_dir_relative_to_root
+    )
 
     # Create another example Gantt output file.
     filename_two, lines_two = create_trivial_gantt("another_trivial_gantt.uml")
@@ -34,9 +36,8 @@ def generate_all_dynamic_diagrams(output_dir_relative_to_root):
 
 
 def output_diagram_text_file(filename, lines, output_dir_relative_to_root):
-    """
-    Gets the filename and lines of an PlantUML diagram, and writes these to a
-    file at the relative output path.
+    """Gets the filename and lines of an PlantUML diagram, and writes these to
+    a file at the relative output path.
 
     Args:
     :param filename: The filename of the PlantUML Gantt file that is being created.
@@ -74,8 +75,7 @@ def output_diagram_text_file(filename, lines, output_dir_relative_to_root):
 
 
 def create_trivial_gantt(filename):
-    """
-    Creates a trivial Gantt chart.
+    """Creates a trivial Gantt chart.
 
     Args:
     :param filename: The filename of the PlantUML diagram file that is being
@@ -101,8 +101,7 @@ def create_trivial_gantt(filename):
 
 
 def create_another_trivial_gantt(filename):
-    """
-    Creates a trivial Gantt chart.
+    """Creates a trivial Gantt chart.
 
     :param filename: The filename of the PlantUML Gantt file that is being created.
 

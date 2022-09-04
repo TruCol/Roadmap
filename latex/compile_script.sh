@@ -62,7 +62,7 @@ do
 	}
 	verify_texlive_fonts_extra_exists
 
-	
+
 	##Verify the Dutch language package used by the TU Delft style files is installed.
 	# verify_texlive_full_exists() {
 		# if ! installed texlive-full; then
@@ -106,9 +106,9 @@ do
 	#  FOUND if the directory exists.
 	#######################################
 	assert_dir_exists() {
-		local dir=$1 
+		local dir=$1
 		if [ -d "$dir" ]; then
-			echo "FOUND" 
+			echo "FOUND"
 		else
 			echo "The directory:$dir does not exist."
 			exit 4
@@ -131,9 +131,9 @@ do
 	#  NOTFOUND if the file does not exist.
 	#######################################
 	assert_file_exists() {
-		local filepath=$1 
+		local filepath=$1
 		if [ -f "$filepath" ]; then
-			echo "FOUND" 
+			echo "FOUND"
 		else
 			echo "The file:$filepath does not exist."
 			exit 4
@@ -176,8 +176,8 @@ do
 
 	#######################################
 	# Checks if the current path is the root directory of this project, returns
-	# FOUND/NOTFOUND accordingly. This check is performed by checking if the 
-	# report.tex file is found at the relative position it would be in, as seen 
+	# FOUND/NOTFOUND accordingly. This check is performed by checking if the
+	# report.tex file is found at the relative position it would be in, as seen
 	# from the root directory.
 	# Local variables:
 	# path_to_report_tex_file
@@ -203,7 +203,7 @@ do
 
 	#######################################
 	# Checks if the current path is the root directory of this project. This check
-	# is performed by checking if the report.tex file is found at the relative 
+	# is performed by checking if the report.tex file is found at the relative
 	# position it would be in, as seen from the root directory. Throws error if the
 	# file is not found at the expected relative position.
 	# Local variables:
@@ -258,7 +258,7 @@ do
 	mkdir $OUTPUT_PATH
 	assert_dir_exists $OUTPUT_PATH
 
-	# Create relative dir from root to report.tex inside output dir 
+	# Create relative dir from root to report.tex inside output dir
 	# (for stylefile (for bibliograpy)).
 	mkdir -p $OUTPUT_PATH/$PATH_TO_REPORT_TEX
 	assert_dir_exists $OUTPUT_PATH/$PATH_TO_REPORT_TEX
@@ -272,7 +272,7 @@ do
 	assert_file_exists "../references.bib"
 	cp ../references.bib $OUTPUT_PATH/references.bib
 	assert_file_exists "$OUTPUT_PATH/references.bib"
-	
+
 	# Copy bst file into output directory (for bibliography)
 	assert_file_exists "../IEEEtran.bst"
 	cp ../IEEEtran.bst $OUTPUT_PATH/IEEEtran.bst
@@ -313,7 +313,7 @@ do
 
 	# Glossary
 	makeindex -s $REPORT_FILENAME.ist -t $REPORT_FILENAME.glg -o $REPORT_FILENAME.gls $REPORT_FILENAME.glo
-	
+
 	# List of acronyms
 	makeindex -s $REPORT_FILENAME.ist -t $REPORT_FILENAME.alg -o $REPORT_FILENAME.acr $REPORT_FILENAME.acn
 

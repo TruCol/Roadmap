@@ -11,6 +11,10 @@
 
 import os
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import lines
+
 ### You can also plot a table directly into latex, see example_create_a_table(..)
 ###
 ### Then put it in latex with for example:
@@ -22,10 +26,6 @@ import os
 ###        \input{latex/project3/tables/q2.txt}
 ###    \end{tabular}
 ###\end{table}
-
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib import lines
 
 
 class Plot_to_tex:

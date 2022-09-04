@@ -3,8 +3,7 @@ import subprocess
 
 
 def check_if_java_file_exists(relative_filepath):
-    """
-    Safe check to see if file exists or not.
+    """Safe check to see if file exists or not.
 
     Args:
     :param relative_filepath: Path as seen from root towards a file.
@@ -23,9 +22,8 @@ def check_if_java_file_exists(relative_filepath):
 
 
 def got_java_file(relative_filepath):
-    """
-    Asserts if PlantUML .jar file exists. Tries to download is one time if it
-    does not exist at the start of the function.
+    """Asserts if PlantUML .jar file exists. Tries to download is one time if
+    it does not exist at the start of the function.
 
     Args:
     :param relative_filepath: Path as seen from root towards a file.
@@ -52,8 +50,7 @@ def got_java_file(relative_filepath):
 
 
 def request_file(url, output_filepath):
-    """
-    Downloads a file or file content.
+    """Downloads a file or file content.
 
     Args:
     :param url: Url towards a file that will be downloaded.
@@ -74,10 +71,9 @@ def request_file(url, output_filepath):
 
 
 def run_bash_command(bashCommand):
-    """
-    Unused method. TODO: verify it is unused and delete it.
-    :param bashCommand: A string containing a bash command that can be executed.
+    """Unused method. TODO: verify it is unused and delete it.
 
+    :param bashCommand: A string containing a bash command that can be executed.
     """
     # Verbose call.
     # subprocess.Popen(bashCommand, shell=True)

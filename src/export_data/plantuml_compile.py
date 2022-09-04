@@ -21,9 +21,9 @@ def compile_diagrams_in_dir_relative_to_root(
     input_dir_relative_to_root,
     verbose,
 ):
-    """
-    Loops through the files in a directory and exports them to the latex /Images
-    directory.
+    """Loops through the files in a directory and exports them to the latex.
+
+    /Images directory.
 
     Args:
     :param await_compilation: Make python wait untill the PlantUML compilation is completed. param extension: The filetype of the text file that is converted to image.
@@ -64,8 +64,7 @@ def execute_diagram_compilation_command(
     relative_filepath_from_root,
     verbose,
 ):
-    """
-    Compiles a .uml/text file containing a PlantUML diagram to a .png image
+    """Compiles a .uml/text file containing a PlantUML diagram to a .png image
     using the PlantUML .jar file.
 
     Args:
@@ -82,7 +81,10 @@ def execute_diagram_compilation_command(
     """
     # Verify the files required for compilation exist, and convert the paths
     # into absolute filepaths.
-    abs_diagram_filepath, abs_jar_path = assert_diagram_compilation_requirements(
+    (
+        abs_diagram_filepath,
+        abs_jar_path,
+    ) = assert_diagram_compilation_requirements(
         jar_path_relative_from_root, relative_filepath_from_root
     )
 
@@ -93,7 +95,9 @@ def execute_diagram_compilation_command(
     bash_diagram_compilation_command = (
         f"java -jar {abs_jar_path} -verbose {abs_diagram_filepath}"
     )
-    print(f"bash_diagram_compilation_command={bash_diagram_compilation_command}")
+    print(
+        f"bash_diagram_compilation_command={bash_diagram_compilation_command}"
+    )
     # Generate global variable specifying max image width in pixels, in the
     # shell that compiles.
     os.environ["PLANTUML_LIMIT_SIZE"] = "16192"
@@ -125,10 +129,9 @@ def assert_diagram_compilation_requirements(
     jar_path_relative_from_root,
     relative_filepath_from_root,
 ):
-    """
-    Asserts that the PlantUML .jar file used for compilation exists, and that
-    the diagram file with the .uml content for the diagram exists. Throws an
-    error if either of two is missing.
+    """Asserts that the PlantUML .jar file used for compilation exists, and
+    that the diagram file with the .uml content for the diagram exists. Throws
+    an error if either of two is missing.
 
     :param relative_filepath_from_root: Relative filepath as seen from root of file that is used in this function.
     :param output_dir_from_root: Relative directory as seen from root, to which files are outputted.

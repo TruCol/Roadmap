@@ -1,6 +1,6 @@
 # Data export imports.
-from .plantuml_generate import generate_all_dynamic_diagrams
 from .plantuml_compile import compile_diagrams_in_dir_relative_to_root
+from .plantuml_generate import generate_all_dynamic_diagrams
 from .plantuml_to_tex import export_diagrams_to_latex
 
 

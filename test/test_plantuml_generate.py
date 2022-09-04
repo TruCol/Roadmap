@@ -1,5 +1,6 @@
-import unittest
 import os
+import unittest
+
 from src.export_data.helper_dir_file_edit import *
 from src.export_data.plantuml_generate import *
 
@@ -10,7 +11,7 @@ class Test_main(unittest.TestCase):
 
     # Initialize test object
     def __init__(self, *args, **kwargs):
-        super(Test_main, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.script_dir = self.get_script_dir()
         self.project_name = "Whitepaper"
 
@@ -28,14 +29,18 @@ class Test_main(unittest.TestCase):
             f"{dynamic_diagram_dir_relative_to_root}/{diagram_text_filename}"
         )
 
-        create_dir_relative_to_root_if_not_exists(dynamic_diagram_dir_relative_to_root)
+        create_dir_relative_to_root_if_not_exists(
+            dynamic_diagram_dir_relative_to_root
+        )
         self.assertTrue(
             dir_relative_to_root_exists(dynamic_diagram_dir_relative_to_root)
         )
 
         # Generate a PlantUML diagram.
         filename, lines = create_trivial_gantt(diagram_text_filename)
-        output_diagram_text_file(filename, lines, dynamic_diagram_dir_relative_to_root)
+        output_diagram_text_file(
+            filename, lines, dynamic_diagram_dir_relative_to_root
+        )
 
         # Assert file exist.
         self.assertTrue(os.path.exists(diagram_text_filepath_relative_to_root))
@@ -43,7 +48,9 @@ class Test_main(unittest.TestCase):
         # TODO: Assert file content is correct.
 
         # Cleanup after
-        delete_dir_relative_to_root_if_not_exists(dynamic_diagram_dir_relative_to_root)
+        delete_dir_relative_to_root_if_not_exists(
+            dynamic_diagram_dir_relative_to_root
+        )
         self.assertFalse(
             dir_relative_to_root_exists(dynamic_diagram_dir_relative_to_root)
         )

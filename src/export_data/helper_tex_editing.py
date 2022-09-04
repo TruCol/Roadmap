@@ -1,4 +1,5 @@
 import os
+
 from .helper_dir_file_edit import (
     append_line_to_file,
     append_lines_to_file,
@@ -44,13 +45,13 @@ def tex_appendix_filename_to_inclusion_command(appendix_filename, from_root):
     if from_root:
         # Generate latex inclusion command for latex compilation from root dir.
         appendix_inclusion_command = (
-            f"\input{{latex/Appendices/{appendix_filename}.tex}} \\newpage"
+            f"\\input{{latex/Appendices/{appendix_filename}.tex}} \\newpage"
         )
         # \input{latex/Appendices/Auto_generated_py_App8.tex} \newpage
     else:
         # \input{Appendices/Auto_generated_py_App8.tex} \newpage
         appendix_inclusion_command = (
-            f"\input{{Appendices/{appendix_filename}.tex}} \\newpage"
+            f"\\input{{Appendices/{appendix_filename}.tex}} \\newpage"
         )
     return appendix_inclusion_command
 
@@ -59,15 +60,17 @@ def create_appendix_filecontent(
     latex_object_name, filename, filepath_from_root, from_root
 ):
     # Latex titles should escape underscores.
-    filepath_from_root_without_underscores = filepath_from_root.replace("_", "\_")
+    filepath_from_root_without_underscores = filepath_from_root.replace(
+        "_", r"\_"
+    )
     lines = []
     lines.append(
-        f"\{latex_object_name}{{Appendix {filepath_from_root_without_underscores}}}\label{{app:{filename}}}"
+        rf"\{latex_object_name}{{Appendix {filepath_from_root_without_underscores}}}\label{{app:{filename}}}"
     )
     if from_root:
-        lines.append(f"\pythonexternal{{latex/..{filepath_from_root}}}")
+        lines.append(rf"\pythonexternal{{latex/..{filepath_from_root}}}")
     else:
-        lines.append(f"\pythonexternal{{latex/..{filepath_from_root}}}")
+        lines.append(rf"\pythonexternal{{latex/..{filepath_from_root}}}")
     return lines
 
 
@@ -150,7 +153,9 @@ def create_appendix_file(
     # TODO: verify files exist
 
 
-def export_python_project_code(hd, normalised_root_dir, python_project_code_filepaths):
+def export_python_project_code(
+    hd, normalised_root_dir, python_project_code_filepaths
+):
     is_project_code = True
     is_export_code = False
     from_root = False
@@ -164,11 +169,18 @@ def export_python_project_code(hd, normalised_root_dir, python_project_code_file
             is_project_code,
         )
         create_appendices(
-            hd, filepath, normalised_root_dir, True, is_export_code, is_project_code
+            hd,
+            filepath,
+            normalised_root_dir,
+            True,
+            is_export_code,
+            is_project_code,
         )
 
 
-def export_python_export_code(hd, normalised_root_dir, python_export_code_filepaths):
+def export_python_export_code(
+    hd, normalised_root_dir, python_export_code_filepaths
+):
     is_project_code = False
     is_export_code = True
     from_root = False
@@ -182,12 +194,22 @@ def export_python_export_code(hd, normalised_root_dir, python_export_code_filepa
             is_project_code,
         )
         create_appendices(
-            hd, filepath, normalised_root_dir, True, is_export_code, is_project_code
+            hd,
+            filepath,
+            normalised_root_dir,
+            True,
+            is_export_code,
+            is_project_code,
         )
 
 
 def create_appendices(
-    hd, filepath, normalised_root_dir, from_root, is_export_code, is_project_code
+    hd,
+    filepath,
+    normalised_root_dir,
+    from_root,
+    is_export_code,
+    is_project_code,
 ):
     # Get the filepath of a python file from the root dir of this project.
     filepath_from_root = convert_filepath_to_filepath_from_root(
@@ -212,7 +234,11 @@ def create_appendices(
     #    exit()
 
     append_appendix_to_appendix_managers(
-        appendix_inclusion_command, from_root, hd, is_export_code, is_project_code
+        appendix_inclusion_command,
+        from_root,
+        hd,
+        is_export_code,
+        is_project_code,
     )
 
     # Create the appendix .tex file.
