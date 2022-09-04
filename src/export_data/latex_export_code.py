@@ -1,19 +1,20 @@
 # runs a jupyter notebook and converts it to pdf
 import os
 
+from src.export_data..helper_tex_editing import (
+    create_appendix_manager_files,
+    export_python_export_code,
+    export_python_project_code,
+)
+from src.export_data..helper_tex_reading import (
+    verify_latex_supports_auto_generated_appendices,
+)
 from src.export_data.helper_dir_file_edit import (
     get_all_files_in_dir_and_child_dirs,
     get_filepaths_in_dir,
     remove_all_auto_generated_appendices,
     sort_filepaths_by_filename,
 )
-
-from .helper_tex_editing import (
-    create_appendix_manager_files,
-    export_python_export_code,
-    export_python_project_code,
-)
-from .helper_tex_reading import verify_latex_supports_auto_generated_appendices
 
 
 def export_code_to_latex(hd, include_export_code):

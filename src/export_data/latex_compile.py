@@ -1,6 +1,7 @@
 # Compiles the latex report using the compile script.
 
-from .helper_bash_commands import run_bash_command
+
+from src.export_data.plantuml_get_package import run_bash_command
 
 
 def compile_latex(await_compilation, verbose):

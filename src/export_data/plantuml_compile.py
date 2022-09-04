@@ -13,8 +13,7 @@ from os.path import abspath
 from src.export_data.helper_dir_file_edit import (
     get_dir_filelist_based_on_extension,
 )
-
-from .plantuml_get_package import got_java_file
+from src.export_data.plantuml_get_package import got_java_file
 
 
 def compile_diagrams_in_dir_relative_to_root(

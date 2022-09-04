@@ -3,10 +3,11 @@
 
 
 # Project code imports.
-from .arg_parser import parse_cli_args
+from src.arg_parser import parse_cli_args
+from src.export_data.export_data import export_data
 
 # Export data import.
-from .export_data.export_data import export_data
+
 
 # Parse command line interface arguments to determine what this script does.
 args = parse_cli_args()

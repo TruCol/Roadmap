@@ -1,6 +1,8 @@
 # This file creates the diagrams that are written directly in plain .uml files.
-from .plantuml_compile import compile_diagrams_in_dir_relative_to_root
-from .plantuml_to_tex import export_diagrams_to_latex
+from src.export_data.plantuml_compile import (
+    compile_diagrams_in_dir_relative_to_root,
+)
+from src.export_data.plantuml_to_tex import export_diagrams_to_latex
 
 
 def create_static_diagrams(args, hd):

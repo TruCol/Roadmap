@@ -1,9 +1,10 @@
 # File used to export data to latex.
-from .create_dynamic_diagrams import create_dynamic_diagrams
-from .create_static_diagrams import create_static_diagrams
+from src.export_data.create_dynamic_diagrams import create_dynamic_diagrams
+from src.export_data.create_static_diagrams import create_static_diagrams
+from src.export_data.latex_compile import compile_latex
+from src.export_data.latex_export_code import export_code_to_latex
+
 from .Hardcoded_data import Hardcoded_data
-from .latex_compile import compile_latex
-from .latex_export_code import export_code_to_latex
 
 
 def export_data(args):
