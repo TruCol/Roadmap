@@ -15,9 +15,12 @@ def export_diagrams_to_latex(
     /Images directory.
 
     :param dir: The directory in which the Gantt charts are being searched.
-    :param extension: The file extension that is used/searched in this function. The filetypes that are being exported.
-    :param input_dir_relative_to_root: Relative path as seen from the root dir of this project, containing files that modified in this function.
-    :param output_dir_relative_to_root: Relative path as seen from the root dir of this project, to which modified files are outputted.
+    :param extension: The file extension that is used/searched in this
+    function. The filetypes that are being exported.
+    :param input_dir_relative_to_root: Relative path as seen from the root dir
+    of this project, containing files that modified in this function.
+    :param output_dir_relative_to_root: Relative path as seen from the root dir
+    of this project, to which modified files are outputted.
     """
     diagram_filenames = get_dir_filelist_based_on_extension(
         input_dir_relative_to_root, extension
@@ -43,7 +46,8 @@ def export_gantt_to_latex(
     file towards the output directory.
 
     :param relative_filepath_from_root: param output_dir_relative_to_root:
-    :param output_dir_relative_to_root: Relative path as seen from the root dir of this project, to which modified files are outputted.
+    :param output_dir_relative_to_root: Relative path as seen from the root dir
+    of this project, to which modified files are outputted.
 
     Returns:
         Nothing.
@@ -59,7 +63,8 @@ def export_gantt_to_latex(
             )
         else:
             raise Exception(
-                f"The output directory:{output_dir_relative_to_root} does not exist."
+                f"The output directory:{output_dir_relative_to_root} does"
+                + " not exist."
             )
     else:
         raise Exception(

@@ -28,7 +28,7 @@ def export_code_to_latex(hd, include_export_code):
 
     :param main_latex_filename: Name of the main latex document of this project
     number.
-    :param project_name: The name of the project that is being executed/ran. 
+    :param project_name: The name of the project that is being executed/ran.
     The number  indicating which project this code pertains to.
     """
     script_dir = get_script_dir()
