@@ -7,7 +7,7 @@ from src.export_data.helper_bash_commands import run_a_bash_command
 def compile_latex(await_compilation, verbose):
     """Compiles the LaTex report of this project using its compile script.
 
-    :param await_compilation: Make python wait untill the PlantUML compilation
+    :param await_compilation: Make python wait until the PlantUML compilation
     is completed.
     :param project_name: The name of the project that is being executed/ran.
     :param verbose: True, ensures compilation output is printed to terminal,

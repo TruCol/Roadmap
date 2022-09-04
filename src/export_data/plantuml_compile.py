@@ -28,7 +28,7 @@ def compile_diagrams_in_dir_relative_to_root(
     /Images directory.
 
     Args:
-    :param await_compilation: Make python wait untill the PlantUML compilation
+    :param await_compilation: Make python wait until the PlantUML compilation
     is completed. param extension: The filetype of the text file that is
     converted to image.
     :param jar_path_relative_from_root: The path as seen from root towards the
@@ -76,7 +76,7 @@ def execute_diagram_compilation_command(
     using the PlantUML .jar file.
 
     Args:
-    :param await_compilation: Make python wait untill the PlantUML compilation
+    :param await_compilation: Make python wait until the PlantUML compilation
     is completed. param extension: The filetype of the text file that is
     converted to image.
     :param jar_path_relative_from_root: The path as seen from root towards the

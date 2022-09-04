@@ -98,7 +98,7 @@ do
 	# Globals:
 	#  None.
 	# Arguments:
-	#  dir - The path to the directory that is being checked for existance.
+	#  dir - The path to the directory that is being checked for existence.
 	# Returns:
 	#  0 if the directory exists.
 	#  4 if the directory does not exist
@@ -123,9 +123,9 @@ do
 	# Globals:
 	#  None.
 	# Arguments:
-	#  filepath - The path to the file that is being checked for existance.
+	#  filepath - The path to the file that is being checked for existence.
 	# Returns:
-	#  0 if the function is executed succesfully.
+	#  0 if the function is executed successfully.
 	# Outputs:
 	#  FOUND if the file exists.
 	#  NOTFOUND if the file does not exist.
@@ -233,7 +233,7 @@ do
 	if [ "$(is_root_dir $PATH_TO_REPORT_TEX_FILE)" == "FOUND" ] ; then
 		echo "FOUND"
 	else
-		# Get lenght of expected subdir
+		# Get length of expected subdir
 		expected_path_length=${#PATH_TO_REPORT_TEX}
 		if [[ "${PWD: -$expected_path_length}" == "$PATH_TO_REPORT_TEX" ]]; then
 			cd ../..
@@ -274,9 +274,9 @@ do
 	assert_file_exists "$OUTPUT_PATH/references.bib"
 
 	# Copy bst file into output directory (for bibliography)
-	assert_file_exists "../IEEEtran.bst"
-	cp ../IEEEtran.bst $OUTPUT_PATH/IEEEtran.bst
-	assert_file_exists "$OUTPUT_PATH/IEEEtran.bst"
+	#assert_file_exists "../IEEEtran.bst"
+	#cp ../IEEEtran.bst $OUTPUT_PATH/IEEEtran.bst
+	#assert_file_exists "$OUTPUT_PATH/IEEEtran.bst"
 
 	# Copy solidity-highlighting.tex for TruSec Whitepaper
 	#cp "$PATH_TO_REPORT_TEX/solidity-highlighting.tex" "$OUTPUT_PATH/solidity-highlighting.tex"

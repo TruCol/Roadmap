@@ -102,6 +102,6 @@ def get_compiled_notebook_paths(script_dir):
 
 
 def get_script_dir():
-    """returns the directory of this script regardles of from which level the
+    """returns the directory of this script regardless of from which level the
     code is executed."""
     return os.path.dirname(__file__)
