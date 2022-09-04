@@ -5,6 +5,8 @@ channels:
   - conda-forge
   - conda
 dependencies:
+# Specify specific python version.
+- python=3.10
 - anaconda
 - nb_conda
 - conda:
