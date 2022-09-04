@@ -52,12 +52,17 @@ class Hardcoded_data:
 
         # Specify paths relative to root.
         self.path_to_export_data_from_root = f"src/{self.export_data_dirname}"
-        self.jar_path_relative_from_root = f"{self.path_to_export_data_from_root}/{self.plant_uml_java_filename}"
+        self.jar_path_relative_from_root = (
+            f"{self.path_to_export_data_from_root}"
+        )
+        +f"/{self.plant_uml_java_filename}"
         self.diagram_output_dir_relative_to_root = (
             f"latex/Images/{self.diagram_dir}"
         )
 
         # Path related variables
         self.append_export_code_to_latex = True
-        self.path_to_dynamic_gantts = f"{self.path_to_export_data_from_root}/{self.diagram_dir}/{self.dynamic_diagram_dir}"
-        self.path_to_static_gantts = f"{self.path_to_export_data_from_root}/{self.diagram_dir}/{self.static_diagram_dir}"
+        self.path_to_dynamic_gantts = f"{self.path_to_export_data_from_root}/"
+        +f"{self.diagram_dir}/{self.dynamic_diagram_dir}"
+        self.path_to_static_gantts = f"{self.path_to_export_data_from_root}/"
+        +f"{self.diagram_dir}/{self.static_diagram_dir}"
