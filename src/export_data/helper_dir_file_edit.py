@@ -1,9 +1,15 @@
+# A helper file that is used for directory and file editing.
 import glob
 import os
 import shutil
 
 
 def file_contains(filepath, substring):
+    """Returns True if a file exists. None otherwise.
+
+    :param filepath:
+    :param substring:
+    """
     with open(filepath) as f:
         if substring in f.read():
             return True
@@ -95,6 +101,11 @@ def get_filepaths_in_dir(extension, path, excluded_files=None):
 
 
 def sort_filepaths_by_filename(filepaths):
+    """
+
+    :param filepaths:
+
+    """
     # filepaths.sort(key = lambda x: x.split()[1])
     filepaths.sort(key=lambda x: x[x.rfind("/") + 1 :])
     for filepath in filepaths:
@@ -111,6 +122,11 @@ def get_filename_from_dir(path):
 
 
 def delete_file_if_exists(filepath):
+    """
+
+    :param filepath:
+
+    """
     try:
         os.remove(filepath)
     except OSError:
@@ -118,6 +134,12 @@ def delete_file_if_exists(filepath):
 
 
 def convert_filepath_to_filepath_from_root(filepath, normalised_root_path):
+    """
+
+    :param filepath:
+    :param normalised_root_path:
+
+    """
     normalised_filepath = os.path.normpath(filepath)
     filepath_relative_from_root = normalised_filepath[
         len(normalised_root_path) :
@@ -126,18 +148,35 @@ def convert_filepath_to_filepath_from_root(filepath, normalised_root_path):
 
 
 def append_lines_to_file(filepath, lines):
+    """
+
+    :param filepath:
+    :param lines:
+
+    """
     with open(filepath, "a") as the_file:
         for line in lines:
             the_file.write(f"{line}\n")
 
 
 def append_line_to_file(filepath, line):
+    """
+
+    :param filepath:
+    :param line:
+
+    """
     with open(filepath, "a") as the_file:
         the_file.write(f"{line}\n")
         the_file.close()
 
 
 def remove_all_auto_generated_appendices(hd):
+    """
+
+    :param hd:
+
+    """
 
     # TODO: move identifier into hardcoded.
     all_appendix_files = get_all_files_in_dir_and_child_dirs(
@@ -150,7 +189,9 @@ def remove_all_auto_generated_appendices(hd):
 
 def delete_dir_relative_to_root_if_not_exists(dir_relative_to_root):
     """
+
     :param dir_relative_to_root: A relative directory as seen from the root dir of this project.
+
     """
     if os.path.exists(dir_relative_to_root):
         # Remove directory and its content.

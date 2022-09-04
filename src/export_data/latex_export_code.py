@@ -26,8 +26,10 @@ def export_code_to_latex(hd, include_export_code):
     notebooks are added in alphabetic order of filename. This order of
     appendices is overwritten in the main tex file.
 
-    :param main_latex_filename: Name of the main latex document of this project number
-    :param project_name: The name of the project that is being executed/ran. The number  indicating which project this code pertains to.
+    :param main_latex_filename: Name of the main latex document of this project
+    number.
+    :param project_name: The name of the project that is being executed/ran. 
+    The number  indicating which project this code pertains to.
     """
     script_dir = get_script_dir()
     latex_dir = script_dir + "/../../latex/"
@@ -55,7 +57,8 @@ def export_code_to_latex(hd, include_export_code):
 
     remove_all_auto_generated_appendices(hd)
 
-    # Create appendix file # ensure they are also deleted at the start of every run.
+    # Create appendix file # ensure they are also deleted at the start of every
+    # run.
     create_appendix_manager_files(hd)
 
     # TODO: Sort main files.

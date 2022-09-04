@@ -2,7 +2,8 @@
 
 
 class Hardcoded_data:
-    """"""
+    """Contains a list of parameters that are used in this project that
+    combines Python code with a LaTex document."""
 
     def __init__(self):
 

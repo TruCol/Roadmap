@@ -13,7 +13,8 @@ def generate_all_dynamic_diagrams(output_dir_relative_to_root):
     """Manages the generation of all the diagrams created in this file.
 
     Args:
-    :param output_dir_relative_to_root: Relative path as seen from the root dir of this project, to which modified files are outputted.
+    :param output_dir_relative_to_root: Relative path as seen from the root dir
+    of this project, to which modified files are outputted.
 
     Returns:
         Nothing
@@ -40,9 +41,12 @@ def output_diagram_text_file(filename, lines, output_dir_relative_to_root):
     a file at the relative output path.
 
     Args:
-    :param filename: The filename of the PlantUML Gantt file that is being created.
-    :param lines: The lines of the Gantt chart PlantUML code that is being written to file.
-    :param output_dir_relative_to_root: Relative path as seen from the root dir of this project, to which modified files are outputted.
+    :param filename: The filename of the PlantUML Gantt file that is being
+    created.
+    :param lines: The lines of the Gantt chart PlantUML code that is being
+    written to file.
+    :param output_dir_relative_to_root: Relative path as seen from the root
+    dir of this project, to which modified files are outputted.
 
     Returns:
         Nothing
@@ -56,7 +60,8 @@ def output_diagram_text_file(filename, lines, output_dir_relative_to_root):
     create_dir_relative_to_root_if_not_exists(output_dir_relative_to_root)
     if not dir_relative_to_root_exists(output_dir_relative_to_root):
         raise Exception(
-            f"Error, the output directory relative to root:{output_dir_relative_to_root} does not exist."
+            "Error, the output directory relative to root:"
+            + f"{output_dir_relative_to_root} does not exist."
         )
 
     # Delete output file if it already exists.
@@ -103,7 +108,8 @@ def create_trivial_gantt(filename):
 def create_another_trivial_gantt(filename):
     """Creates a trivial Gantt chart.
 
-    :param filename: The filename of the PlantUML Gantt file that is being created.
+    :param filename: The filename of the PlantUML Gantt file that is being
+    created.
 
     Returns:
         The filename of the PlantUML diagram, and the lines of the uml content
