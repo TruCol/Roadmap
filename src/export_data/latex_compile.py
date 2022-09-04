@@ -1,7 +1,7 @@
 # Compiles the latex report using the compile script.
 
 
-from src.export_data.plantuml_get_package import run_bash_command
+from src.export_data.helper_bash_commands import run_a_bash_command
 
 
 def compile_latex(await_compilation, verbose):
@@ -24,10 +24,10 @@ def compile_latex(await_compilation, verbose):
     bash_make_compile_script_runnable_command = (
         "chmod +x latex/compile_script.sh"
     )
-    run_bash_command(
+    run_a_bash_command(
         await_compilation, bash_make_compile_script_runnable_command, verbose
     )
 
     # Run latex compilation script to compile latex project.
     bash_compilation_command = "latex/compile_script.sh"
-    run_bash_command(await_compilation, bash_compilation_command, verbose)
+    run_a_bash_command(await_compilation, bash_compilation_command, verbose)
