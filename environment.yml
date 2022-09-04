@@ -1,6 +1,6 @@
 # run: conda env create --file environment.yml
 # include new packages: conda env update --file environment.yml
-name: trusecwp
+name: trucolroadmap
 channels:
   - conda-forge
   - conda
@@ -37,3 +37,4 @@ dependencies:
   - vulture
 # Get PlantUML .jar file.
   - requests
+  - types-requests
