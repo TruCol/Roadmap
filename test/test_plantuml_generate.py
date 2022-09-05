@@ -1,4 +1,4 @@
-# Generates a PlantUML file using Python code.
+"""Tests whether PlantUML .uml files are created correctly."""
 import os
 import unittest
 
@@ -13,7 +13,9 @@ from src.export_data.plantuml_generate import (
 )
 
 
+# pylint: disable=R0801
 class Test_main(unittest.TestCase):
+    """Test object."""
 
     # Initialize test object
     def __init__(self, *args, **kwargs):
@@ -24,9 +26,14 @@ class Test_main(unittest.TestCase):
     # returns the directory of this script regardless of from which level the
     # code is executed
     def get_script_dir(self):
+        """returns the directory of this script regardless of from which level
+        the code is executed."""
         return os.path.dirname(__file__)
 
+    # pylint: disable=R0801
     def test_if_plantuml_file_is_outputted(self):
+        """Tests whether the plantuml file for the code generated Gantts are
+        created correctly."""
         diagram_text_filename = "trivial_gantt.uml"
 
         dynamic_diagram_dir_relative_to_root = (

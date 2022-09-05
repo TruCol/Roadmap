@@ -1,4 +1,5 @@
-# This file creates the diagrams that are written directly in plain .uml files.
+"""This file creates the diagrams that are written directly in plain .uml
+files."""
 from src.export_data.plantuml_compile import (
     compile_diagrams_in_dir_relative_to_root,
 )

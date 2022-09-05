@@ -1,4 +1,4 @@
-# runs a jupyter notebook and converts it to pdf
+"""Exports code to latex appendices."""
 import os
 
 from src.export_data.helper_dir_file_edit import (

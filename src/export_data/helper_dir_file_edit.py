@@ -1,4 +1,4 @@
-# A helper file that is used for directory and file editing.
+"""A helper file that is used for directory and file editing."""
 import glob
 import os
 import shutil
@@ -10,9 +10,8 @@ def file_contains(filepath, substring):
     :param filepath:
     :param substring:
     """
-    with open(filepath) as f:
-        if substring in f.read():
-            return True
+    with open(filepath, encoding="utf-8") as f:
+        return substring in f.read()
 
 
 def get_dir_filelist_based_on_extension(dir_relative_to_root, extension):
@@ -51,13 +50,12 @@ def dir_relative_to_root_exists(dir_relative_to_root):
     """
     if not os.path.exists(dir_relative_to_root):
         return False
-    elif os.path.exists(dir_relative_to_root):
+    if os.path.exists(dir_relative_to_root):
         return True
-    else:
-        raise Exception(
-            f"Directory relative to root: {dir_relative_to_root}"
-            + " did not exist, nor did it exist."
-        )
+    raise Exception(
+        f"Directory relative to root: {dir_relative_to_root}"
+        + " did not exist, nor did it exist."
+    )
 
 
 def get_all_files_in_dir_and_child_dirs(extension, path, excluded_files=None):
@@ -73,7 +71,7 @@ def get_all_files_in_dir_and_child_dirs(extension, path, excluded_files=None):
     included even if they are found.
     """
     filepaths = []
-    for r, d, f in os.walk(path):
+    for r, _, f in os.walk(path):
         for file in f:
             if file.endswith(extension):
                 if (excluded_files is None) or (
@@ -164,7 +162,7 @@ def append_lines_to_file(filepath, lines):
     :param lines:
 
     """
-    with open(filepath, "a") as the_file:
+    with open(filepath, "a", encoding="utf-8") as the_file:
         for line in lines:
             the_file.write(f"{line}\n")
 
@@ -176,7 +174,7 @@ def append_line_to_file(filepath, line):
     :param line:
 
     """
-    with open(filepath, "a") as the_file:
+    with open(filepath, "a", encoding="utf-8") as the_file:
         the_file.write(f"{line}\n")
         the_file.close()
 

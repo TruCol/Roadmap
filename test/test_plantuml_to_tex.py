@@ -1,3 +1,4 @@
+"""Tests whether the PlantUML images are exported to the latex dir."""
 import os
 import unittest
 
@@ -16,7 +17,9 @@ from src.export_data.plantuml_generate import (
 from src.export_data.plantuml_to_tex import export_diagrams_to_latex
 
 
+# pylint: disable=R0801
 class Test_main(unittest.TestCase):
+    """Test Class."""
 
     # Initialize test object
     def __init__(self, *args, **kwargs):
@@ -27,9 +30,12 @@ class Test_main(unittest.TestCase):
     # returns the directory of this script regardless of from which level the
     # code is executed
     def get_script_dir(self):
+        """returns the directory of this script regardless of from which level
+        the code is executed."""
         return os.path.dirname(__file__)
 
     def test_if_plantuml_file_is_outputted_compiled_and_moved_to_latex(self):
+        """Test whether the PlantUML images are exported to the latex dir."""
         diagram_text_filename = "trivial_gantt.uml"
         diagram_image_filename = "trivial_gantt.png"
         dynamic_diagram_dir_relative_to_root = (

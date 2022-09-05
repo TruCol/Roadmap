@@ -1,3 +1,5 @@
+"""Tests whether the PlantUML diagrams that are created using Python code are
+actually created."""
 import os
 import unittest
 
@@ -14,25 +16,24 @@ from src.export_data.plantuml_generate import (
     output_diagram_text_file,
 )
 
-# from src.export_data.plantuml_generate import *
-
-# export_data.import testbook
-
 
 class Test_main(unittest.TestCase):
+    """Test object used to execute tests."""
 
     # Initialize test object
     def __init__(self, *args, **kwargs):
+        """Initialises test object."""
         super().__init__(*args, **kwargs)
         self.script_dir = self.get_script_dir()
         self.project_name = "Whitepaper"
 
-    # returns the directory of this script regardless of from which level
-    # the code is executed
     def get_script_dir(self):
+        """returns the directory of this script regardless of from which level
+        the code is executed."""
         return os.path.dirname(__file__)
 
     def test_if_plantuml_file_is_outputted(self):
+        """Tests if the PlantUML file is correctly created."""
         diagram_text_filename = "trivial_gantt.uml"
         diagram_image_filename = "trivial_gantt.png"
         dynamic_diagram_dir_relative_to_root = (

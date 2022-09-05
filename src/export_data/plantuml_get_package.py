@@ -69,7 +69,7 @@ def request_file(url, output_filepath):
 
     # Request the file in the url
     response = requests.get(url, timeout=20)  # seconds
-    with open(output_filepath, "wb") as f:
+    with open(output_filepath, "wb", encoding="utf-8") as f:
         f.write(response.content)
 
 

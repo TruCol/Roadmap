@@ -1,3 +1,5 @@
+"""Tests whether the Dynamic_diagrams directory in latex is created and deleted
+succesfully."""
 import os
 import unittest
 
@@ -11,6 +13,7 @@ from src.export_data.helper_dir_file_edit import (
 
 
 class Test_main(unittest.TestCase):
+    """Test object."""
 
     # Initialize test object
     def __init__(self, *args, **kwargs):
@@ -18,12 +21,14 @@ class Test_main(unittest.TestCase):
         self.script_dir = self.get_script_dir()
         self.project_name = "Whitepaper"
 
-    # returns the directory of this script regardless of from which level the
-    # code is executed.
     def get_script_dir(self):
+        """returns the directory of this script regardless of from which level
+        the code is executed."""
         return os.path.dirname(__file__)
 
     def test_dir_relative_to_root_is_created_and_deleted(self):
+        """Tests whether the Dynamic_diagrams directory in latex is created and
+        deleted succesfully."""
         dynamic_diagram_dir_relative_to_root = (
             f"latex/{self.project_name}/Images/Diagrams/Dynamic_diagrams"
         )
