@@ -177,7 +177,7 @@ def create_appendix_file(
         # Create the appendix for the case the latex is compiled from root.
         appendix_filepath = (
             f"{hd.appendix_dir_from_root}/Auto_generated_proj"
-            + "ect_code_appendix_{filename_without_extension}.tex"
+            + f"ect_code_appendix_{filename_without_extension}.tex"
         )
 
         # Append latex_filepath to appendix manager.

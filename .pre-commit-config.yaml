@@ -41,7 +41,7 @@ repos:
    rev: v0.950
    hooks:
     - id: mypy
-      verbose: true
+      verbose: false
       args: [--show-error-codes]
       additional_dependencies: ['types-requests']
 
