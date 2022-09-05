@@ -1,23 +1,44 @@
 # run: conda env create --file environment.yml
 # include new packages: conda env update --file environment.yml
-name: roadmap
+name: trucolroadmap
 channels:
   - conda-forge
   - conda
 dependencies:
+# Specify specific python version.
+- python=3.10
 - anaconda
 - nb_conda
 - conda:
+# Run python tests.
   - pytest=6.1.2
+# Convert notebooks to pdf.
   - nbconvert
   - matplotlib
+# Support notebooks.
   - nb_conda
+# Visualise graphs for PlantUML
+  - graphviz
+# Run graph software quickly
+  - networkx
 - pip
 - pip:
-  # works for regular pip packages
+# Compile pdf from python.
   - pdflatex
+# Write unit tests on Jupyter notebooks.
   - testbook
+# Auto generate docstrings
   - pyment
+# Auto generate documentation.
   - pdoc3
+# Auto check programming style aspects.
+  - pylint
+# Code formatting compliance
   - black
+# Generate diagrams.
   - plantuml
+# Identify and remove dead code.
+  - vulture
+# Get PlantUML .jar file.
+  - requests
+  - types-requests
