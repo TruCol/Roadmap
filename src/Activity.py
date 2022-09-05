@@ -19,6 +19,8 @@ class Activity:
         font_size=None,
         hourly_wage=None,
         hours_per_day=None,
+        min_parallel_workers=1,
+        max_parallel_workers=1,
     ):
         self.parent = parent
         self.description = description
@@ -28,6 +30,9 @@ class Activity:
         self.starts_at_child_nr_start = starts_at_child_nr_start
         self.starts_at_child_nr_end = starts_at_child_nr_end
         self.hourly_wage = hourly_wage
+        self.min_parallel_workers = min_parallel_workers
+        self.max_parallel_workers = max_parallel_workers
+
         if hours_per_day is None:
             self.hours_per_day = 8
         else:

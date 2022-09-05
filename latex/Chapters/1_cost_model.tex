@@ -13,7 +13,7 @@ The total costs are computed based on the following 2 factors:
 \subsection{Specification}\label{subsec:specification}
 The costs untill TruCol is expected to be operationally break-even (OBE) are estimated using \cref{eq:cost_obe}:
 \begin{equation}
-	costs_{OBE}={labour\, costs}_{OBE}+{bounty\, subsidisation\, costs}_{OBE}+{buffer\, costs}_{OBE}
+	costs_{OBE}=labour+{bounty\, subsidisation}+buffer
 	\label{eq:cost_obe}
 \end{equation}
 The 3 right hand terms are specified in \cref{subsubsec:labour_cost_specification} to \cref{subsubsec:buffer_cost_specification}.
@@ -21,12 +21,12 @@ The 3 right hand terms are specified in \cref{subsubsec:labour_cost_specificatio
 \subsubsection{Labour Cost Specification}\label{subsubsec:labour_cost_specification}
 The labour costs costs are mathematically described in \Cref{eq:labour_costs} and computed automatically in the Gantt chart creation using Python. They are specified as the sum of the labour costs of all workers $i$. The labour costs of a worker $i$ is defined as the amount of hours worked by worker $i$, multiplied with the labour costs of the worker $i$:
 \begin{equation}
-	{labour\, costs}_{OBE}=\sum_{day=1}^{day=OBE} \sum_{worker=1} ^{worker=n(day)} hrs(worker,day)\cdot wage(worker)
+	labour=\sum_{day=1}^{day=OBE} \sum_{worker=1} ^{worker=n(day)} hrs(worker,day)\cdot wage(worker)
 	\label{eq:labour_costs}
 \end{equation}
 With:
 \begin{itemize}
-	\item ${labour\, costs}_{OBE} [\text{\euro}]$: The total expected labour cost to reach operational break-even (OBE).
+	\item $labour [\text{\euro}]$: The total expected labour cost to reach operational break-even (OBE).
 	\item $worker [-]$: The index representing a TruCol employee.
 	\item $n(day) [workers]$: The number of workers at TruCol on day $day$.
 	\item $OBE [day]$: The index of the day on which TruCol reaches operational break-even  (OBE).
@@ -37,7 +37,7 @@ With:
 \subsubsection{Bounty Subsidisation Cost Specification}\label{subsubsec:bounty_subsidisation_cost_specification}
 The bounty subsitisation costs up to OBE, are estimated as:
 \begin{equation}
-	{bounty\, subsidisation\, costs}_{OBE}=\text{\euro}100.000
+	{bounty\, subsidisation}=\text{\euro}100.000
 	\label{eq:bounty_subsidisation}
 \end{equation}
 This cost is estimated with the aim of subsidising 2 to 20 companies. This range has 1 order of magnitude as range to accomodate different strategies. Either one can focus on 1 or 2 leading companies and motivate them to try the TruCol protocol. After these companies have used the protocol, work can be performed to ensure the rest of the market follows, based on the competitive advantages experiences by these 2 leading companies. Otherwise, multiple smaller companies may be motivated to use the TruCol protocol to generate a larger degree of interaction and engagement with the protocol.
@@ -45,7 +45,7 @@ This cost is estimated with the aim of subsidising 2 to 20 companies. This range
 \subsubsection{Buffer Cost Specification}\label{subsubsec:buffer_cost_specification}
 The buffer costs up to OBE, are estimated as:
 \begin{equation}
-	{buffer\, costs}_{OBE}=\text{\euro}100.000
+	buffer=\text{\euro}100.000
 	\label{eq:buffer_costs}
 \end{equation}
 This is to overcome known unknowns and possibly unknown unknown occurrances.
@@ -58,12 +58,12 @@ The hourly wage of the developers working on decentralised technology is based o
 \end{equation}
 The datapoints used to come to this estimate are the promoted starting wages for Junior Developers/Engineers at Optiver in Amsterdam, Think-cell in Berlin, and a third Zurich company, which all ranged between 80 to 120k at the time of inspection (Around March 2021). No proper datapoint is used to estimate the salary of the senior developers. Previous experience in co-working with senior developers led to an estimate that their hourly contributions are at least twice as valuable as that of a junior developer. Another indicator for the doubling in wage between junior and senior dev may be the hear-say high demand in solidity/decentralisation developers.
 
-The 70,- hourly wage is interpreted as \euro$75,-$ per hour to be on the conservative side of estimates.
+The 70,- hourly wage is interpreted as \euro$\blockchaindev,-$ per hour to be on the conservative side of estimates.
 \subsubsection{Website/Platform Wages}
-The website+API+GUI development is estimated at \euro$40$ per hour. This estimate is based on a reduced hourly wage of the junior decentralised technology developers (from \euro$50,-$ to \euro$40,-$). Some of the development costs for these activities may be performed at a lower hourly cost price, this platform development work also contains UX design. And excellent UX design is quite costly, hence the average hourly wage for this estimate is kept at \euro$40,-$.
+The website+API+GUI development is estimated at \euro$\frontenddev$ per hour. This estimate is based on a reduced hourly wage of the junior decentralised technology developers (from \euro$50,-$ to \euro$40,-$). Some of the development costs for these activities may be performed at a lower hourly cost price. However, the platform development work also contains UX design. And excellent UX design is quite costly, hence the average hourly wage for this estimate is kept at \euro$\frontenddev,-$.
 
 \subsubsection{Business wages}
-The hourly wages for the business development side of our company is estimated at \euro$35,-$ per hour. This estimate is based on a reduced hourly wage of the junior platform developers (from \euro$40,-$ to \euro$35,-$).
+The hourly wages for the business development side of our company is estimated at \euro$\humanresources,-$ per hour. This estimate is based on a reduced hourly wage of the junior platform developers (from \euro$40,-$ to \euro$35,-$).
 
 \subsubsection{Activity durations}
 The estimates for the durations of the activities for both decentralised technology development as well as ecosystem development are extrapolations of our experience in developing in these disciplines. The business development activities durations are based roughly on estimating what those activities entail and how long it would take to complete them.

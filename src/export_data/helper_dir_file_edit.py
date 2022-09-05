@@ -155,6 +155,18 @@ def convert_filepath_to_filepath_from_root(filepath, normalised_root_path):
     return filepath_relative_from_root
 
 
+def overwrite_file(filepath, lines):
+    """
+
+    :param filepath:
+    :param lines:
+
+    """
+    with open(filepath, "w", encoding="utf-8") as the_file:
+        for line in lines:
+            the_file.write(f"{line}\n")
+
+
 def append_lines_to_file(filepath, lines):
     """
 

@@ -14,7 +14,7 @@ from .Activity import Activity
 
 
 # pylint: disable=R0914
-def create_python_gantt():
+def create_python_gantt(wages: dict):
     """Specifies the data for a Gantt chart."""
     # Create a list to store the parent activities
     parents = []
@@ -33,7 +33,7 @@ def create_python_gantt():
         duration=60,
         new_tag=0,
         parent=protocol,
-        hourly_wage=75,
+        hourly_wage=wages["blockchain_dev"],
     )
     git_tellor = Activity(
         description="Git integration: Tellor",
@@ -41,7 +41,7 @@ def create_python_gantt():
         new_tag=1,
         parent=protocol,
         starts_at_child_nr_start=0,
-        hourly_wage=75,
+        hourly_wage=wages["blockchain_dev"],
     )
     git_chainlink = Activity(
         description="Git integration: Chainlink",
@@ -49,7 +49,7 @@ def create_python_gantt():
         new_tag=2,
         parent=protocol,
         starts_at_child_nr_start=0,
-        hourly_wage=75,
+        hourly_wage=wages["blockchain_dev"],
     )
     alt_chains = Activity(
         description="Alternative Chains",
@@ -57,7 +57,7 @@ def create_python_gantt():
         new_tag=3,
         parent=protocol,
         starts_at_child_nr_start=0,
-        hourly_wage=75,
+        hourly_wage=wages["blockchain_dev"],
     )
 
     # grandchildren
@@ -89,7 +89,7 @@ def create_python_gantt():
         new_tag=1,
         colour="DarkOrchid",
         starts_at_child_nr_start=0,
-        hourly_wage=40,
+        hourly_wage=wages["front_end_dev"],
     )
     # children
     website = Activity(
@@ -144,7 +144,7 @@ def create_python_gantt():
         new_tag=2,
         colour="Yellow",
         starts_at_child_nr_start=0,
-        hourly_wage=35,
+        hourly_wage=wages["human_resources"],
     )
     # children
     partners = Activity(

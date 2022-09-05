@@ -18,6 +18,8 @@
 \makeatother
 
 %%%%%%%%%Custom
+
+
 % Determine whether it is local compilation or overleaf compilation
 \makeatletter
 \begingroup\endlinechar=-1\relax
@@ -26,6 +28,14 @@
          \@@input|"kpsewhich --var-value=HOME" }}\x
 \makeatother
 \def\overleafhome{/tmp}% change as appropriate
+
+\ifx\homepath\overleafhome
+    % Overleaf compilation.
+    \input{Tables/params.tex} %\newpage
+\else
+    % Local compilation
+    \input{latex/Tables/params.tex} %\newpage
+\fi
 
 % Specify compilation name.
 \def\filename{main}
