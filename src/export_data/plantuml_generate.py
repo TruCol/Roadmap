@@ -1,4 +1,4 @@
-# This script generates PlantUML diagrams and outputs them as .uml files.
+"""This script generates PlantUML diagrams and outputs them as .uml files."""
 
 import os
 from os.path import abspath
@@ -69,10 +69,10 @@ def output_diagram_text_file(filename, lines, output_dir_relative_to_root):
         os.remove(abs_filepath)
 
     # Write lines to file.
-    f = open(abs_filepath, "w", encoding="utf-8")
-    for line in lines:
-        f.write(line)
-    f.close()
+    with open(abs_filepath, "w", encoding="utf-8") as f:
+        for line in lines:
+            f.write(line)
+        f.close()
 
     # Assert output file exists.
     if not os.path.isfile(abs_filepath):

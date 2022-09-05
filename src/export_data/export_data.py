@@ -1,4 +1,4 @@
-# File used to export data to latex.
+"""File used to export data to latex."""
 from src.export_data.create_dynamic_diagrams import create_dynamic_diagrams
 from src.export_data.create_static_diagrams import create_static_diagrams
 from src.export_data.Hardcoded_data import Hardcoded_data
