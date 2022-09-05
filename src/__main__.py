@@ -3,7 +3,7 @@ export commands are given to the cli command that invokes this script."""
 
 
 from src.arg_parser import parse_cli_args
-from src.Cost_model_params import Params
+from src.Cost_model_params import params
 from src.export_data.export_data import export_data
 
 # Project code imports.
@@ -14,9 +14,6 @@ from src.Gantt import Gantt
 
 # Parse command line interface arguments to determine what this script does.
 args = parse_cli_args()
-
-# Load Params
-params = Params()
 
 # create gantt chart
 gantt = Gantt("src/export_data/Diagrams/Dynamic_diagrams/gantt.uml", params)

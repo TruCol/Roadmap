@@ -1,6 +1,5 @@
 """Creates the Gantt chart specified in create_python_gantt."""
 
-from src.Cost_model_params import Params
 from src.Create_python_gantt import create_python_gantt
 
 
@@ -8,7 +7,7 @@ from src.Create_python_gantt import create_python_gantt
 class Gantt:
     """Creates the Gantt chart specified in create_python_gantt."""
 
-    def __init__(self, filepath: str, params: Params):
+    def __init__(self, filepath: str, params: dict):
         self.start_line = "@startgantt"
         self.project_start_date = "2022/10-01"
         self.closed_days = ["saturday", "sunday"]
@@ -16,8 +15,8 @@ class Gantt:
         self.box_font_size = "30"
 
         # self.font_size="skinparam defaultFontSize  100"
-
-        self.parents = create_python_gantt(params.wages)
+        print(params)
+        self.parents = create_python_gantt(params["wages"])
         self.end_line = "@endgantt"
         self.lines = self.get_list()
         self.write_gantt(filepath, self.lines)
