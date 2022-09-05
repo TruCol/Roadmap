@@ -1,10 +1,12 @@
-# This script automatically compiles the text files representing a PlantUML
+"""This script automatically compiles the text files representing a PlantUML.
+
 # diagram into an actual figure.
 
 # To compile locally manually:
 # pip install plantuml
 # export  PLANTUML_LIMIT_SIZE=8192
 # java -jar plantuml.jar -verbose sequenceDiagram.txt
+"""
 
 import os
 import subprocess  # nosec
@@ -131,16 +133,31 @@ def execute_diagram_compilation_command(
             )  # nosec
     else:
         if verbose:
-            subprocess.Popen(
-                bash_diagram_compilation_command, shell=True  # nosec
-            )
+            with subprocess.Popen(
+                bash_diagram_compilation_command,
+                shell=True,  # nosec
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+            ) as process:
+                get_output_of_bash_command(process)
         else:
-            subprocess.Popen(
+            with subprocess.Popen(
                 bash_diagram_compilation_command,
                 shell=True,  # nosec
                 stderr=subprocess.DEVNULL,
                 stdout=subprocess.DEVNULL,
-            )
+            ) as process:
+                get_output_of_bash_command(process)
+
+
+def get_output_of_bash_command(process, verbose=True):
+    """Returns the output of a bash command."""
+    stdout, stderr = process.communicate()
+    result = stdout.decode("utf-8")
+    if verbose:
+        print(f"result={result}")
+        print(f"stderr={stderr}")
+    return result
 
 
 def assert_diagram_compilation_requirements(
@@ -171,9 +188,7 @@ def assert_diagram_compilation_requirements(
     if os.path.isfile(abs_diagram_filepath):
         if os.path.isfile(abs_jar_path):
             return abs_diagram_filepath, abs_jar_path
-        else:
-            raise Exception(
-                f"The input diagram file:{abs_diagram_filepath} doesn't exist."
-            )
-    else:
-        raise Exception(f"The input jar file:{abs_jar_path} does not exist.")
+        raise Exception(
+            f"The input diagram file:{abs_diagram_filepath} doesn't exist."
+        )
+    raise Exception(f"The input jar file:{abs_jar_path} does not exist.")

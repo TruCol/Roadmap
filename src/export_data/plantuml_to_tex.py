@@ -1,3 +1,4 @@
+"""Exports the generated PlantUML diagrams to the latex Images directory."""
 import os.path
 import shutil
 

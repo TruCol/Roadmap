@@ -1,6 +1,8 @@
-""" Downloads the PlantUML package if it does not yet exist."""
+"""Downloads the PlantUML package if it does not yet exist."""
 import os
 import subprocess  # nosec
+
+import requests
 
 
 def check_if_java_file_exists(relative_filepath):
@@ -18,6 +20,7 @@ def check_if_java_file_exists(relative_filepath):
     """
 
     return os.path.isfile(relative_filepath)
+
 
 def got_java_file(relative_filepath):
     """Asserts if PlantUML .jar file exists. Tries to download is one time if
@@ -63,10 +66,9 @@ def request_file(url, output_filepath):
     Raises:
         Nothing
     """
-    import requests
 
     # Request the file in the url
-    response = requests.get(url)
+    response = requests.get(url, timeout=20)  # seconds
     with open(output_filepath, "wb") as f:
         f.write(response.content)
 

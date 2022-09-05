@@ -1,4 +1,7 @@
-# Data export imports.
+"""Generates .uml PlantUML files based on Python code.
+
+Typically used for Gantt charts.
+"""
 from src.export_data.plantuml_compile import (
     compile_diagrams_in_dir_relative_to_root,
 )
@@ -7,6 +10,7 @@ from src.export_data.plantuml_to_tex import export_diagrams_to_latex
 
 
 def create_dynamic_diagrams(args, hd):
+    """Generates the dynamic diagrams."""
     # Generate PlantUML diagrams dynamically (using code).
     if args.dd:
         generate_all_dynamic_diagrams(
