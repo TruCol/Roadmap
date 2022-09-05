@@ -225,16 +225,15 @@ showstringspaces=false            %
 \bibliography{references}
 \addcontentsline{toc}{chapter}{Bibliography}
 
-\begin{appendices}
-  \ifx\homepath\overleafhome
-    % Overleaf compilation.
-    \input{Appendices/AppA.tex} %\newpage
-    \input{Appendices/AppB.tex} %\newpage
-\else
-    % Local compilation
-    \input{latex/Appendices/AppA.tex} %\newpage
-    \input{latex/Appendices/AppB.tex} %\newpage
-\fi
-
-\end{appendices}
+%\begin{appendices}
+%  \ifx\homepath\overleafhome
+%      % Overleaf compilation.
+%      \input{Appendices/AppA.tex} %\newpage
+%      \input{Appendices/AppB.tex} %\newpage
+%  \else
+%      % Local compilation
+%      \input{latex/Appendices/AppA.tex} %\newpage
+%      \input{latex/Appendices/AppB.tex} %\newpage
+%  \fi
+%\end{appendices}
 \end{document}
