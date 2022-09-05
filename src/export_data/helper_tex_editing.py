@@ -1,3 +1,5 @@
+"""Helper that modifies LaTex file to allow automatically including Pyathon
+code as appendices."""
 import os
 
 from src.export_data.helper_dir_file_edit import (
@@ -10,14 +12,14 @@ from src.export_data.helper_dir_file_edit import (
 
 
 def code_filepath_to_tex_appendix_filename(
-    filename, from_root, is_project_code, is_export_code
+    filename, _, is_project_code, is_export_code
 ):
     """
 
-    :param filename: 
-    :param from_root: 
-    :param is_project_code: 
-    :param is_export_code: 
+    :param filename:
+    :param from_root:
+    :param is_project_code:
+    :param is_export_code:
 
     """
 
@@ -39,8 +41,8 @@ def code_filepath_to_tex_appendix_filename(
 def verify_input_code_type(is_export_code, is_project_code):
     """
 
-    :param is_export_code: 
-    :param is_project_code: 
+    :param is_export_code:
+    :param is_project_code:
 
     """
     # Create appendix filename identifier segment
@@ -59,8 +61,8 @@ def verify_input_code_type(is_export_code, is_project_code):
 def tex_appendix_filename_to_inclusion_command(appendix_filename, from_root):
     """
 
-    :param appendix_filename: 
-    :param from_root: 
+    :param appendix_filename:
+    :param from_root:
 
     """
     # Create full appendix filename.
@@ -83,10 +85,10 @@ def create_appendix_filecontent(
 ):
     """
 
-    :param latex_object_name: 
-    :param filename: 
-    :param filepath_from_root: 
-    :param from_root: 
+    :param latex_object_name:
+    :param filename:
+    :param filepath_from_root:
+    :param from_root:
 
     """
     # Latex titles should escape underscores.
@@ -109,7 +111,7 @@ def create_appendix_filecontent(
 def create_appendix_manager_files(hd):
     """
 
-    :param hd: 
+    :param hd:
 
     """
     # Verify target directory exists.
@@ -130,7 +132,10 @@ def create_appendix_manager_files(hd):
     # Create new appendix_manager_files
     list(
         map(
-            lambda x: open(f"{hd.appendix_dir_from_root}{x}", "a"),
+            # pylint: disable=R1732
+            lambda x: open(
+                f"{hd.appendix_dir_from_root}{x}", "a", encoding="utf-8"
+            ),
             hd.automatic_appendices_manager_filenames,
         )
     )
@@ -138,12 +143,16 @@ def create_appendix_manager_files(hd):
     # Ensure manual appendix_manager_files are created.
     list(
         map(
-            lambda x: open(f"{hd.appendix_dir_from_root}{x}", "a"),
+            # pylint: disable=R1732
+            lambda x: open(
+                f"{hd.appendix_dir_from_root}{x}", "a", encoding="utf-8"
+            ),
             hd.manual_appendices_manager_filenames,
         )
     )
 
 
+# pylint: disable=R0913
 def create_appendix_file(
     hd,
     filename,
@@ -154,20 +163,22 @@ def create_appendix_file(
 ):
     """
 
-    :param hd: 
-    :param filename: 
-    :param filepath_from_root: 
-    :param latex_object_name: 
-    :param is_export_code: 
-    :param is_project_code: 
+    :param hd:
+    :param filename:
+    :param filepath_from_root:
+    :param latex_object_name:
+    :param is_export_code:
+    :param is_project_code:
 
     """
     verify_input_code_type(is_export_code, is_project_code)
     filename_without_extension = os.path.splitext(filename)[0]
     if is_project_code:
         # Create the appendix for the case the latex is compiled from root.
-        appendix_filepath = f"{hd.appendix_dir_from_root}/Auto_generated_proj"
-        +"ect_code_appendix_{filename_without_extension}.tex"
+        appendix_filepath = (
+            f"{hd.appendix_dir_from_root}/Auto_generated_proj"
+            + "ect_code_appendix_{filename_without_extension}.tex"
+        )
 
         # Append latex_filepath to appendix manager.
         # append_lines_to_file(
@@ -186,8 +197,8 @@ def create_appendix_file(
         # Create the appendix for the case the latex is compiled from root.
         appendix_filepath = (
             f"{hd.appendix_dir_from_root}/Auto_generated_export"
+            + f"_code_appendix_{filename_without_extension}.tex"
         )
-        +f"_code_appendix_{filename_without_extension}.tex"
 
         # Append latex_filepath to appendix manager.
         # append_lines_to_file(
@@ -210,9 +221,9 @@ def export_python_project_code(
 ):
     """
 
-    :param hd: 
-    :param normalised_root_dir: 
-    :param python_project_code_filepaths: 
+    :param hd:
+    :param normalised_root_dir:
+    :param python_project_code_filepaths:
 
     """
     is_project_code = True
@@ -242,9 +253,9 @@ def export_python_export_code(
 ):
     """
 
-    :param hd: 
-    :param normalised_root_dir: 
-    :param python_export_code_filepaths: 
+    :param hd:
+    :param normalised_root_dir:
+    :param python_export_code_filepaths:
 
     """
     is_project_code = False
@@ -269,6 +280,7 @@ def export_python_export_code(
         )
 
 
+# pylint: disable=R0913
 def create_appendices(
     hd,
     filepath,
@@ -279,12 +291,12 @@ def create_appendices(
 ):
     """
 
-    :param hd: 
-    :param filepath: 
-    :param normalised_root_dir: 
-    :param from_root: 
-    :param is_export_code: 
-    :param is_project_code: 
+    :param hd:
+    :param filepath:
+    :param normalised_root_dir:
+    :param from_root:
+    :param is_export_code:
+    :param is_project_code:
 
     """
     # Get the filepath of a python file from the root dir of this project.
@@ -336,11 +348,11 @@ def append_appendix_to_appendix_managers(
 ):
     """
 
-    :param appendix_inclusion_command: 
-    :param from_root: 
-    :param hd: 
-    :param is_export_code: 
-    :param is_project_code: 
+    :param appendix_inclusion_command:
+    :param from_root:
+    :param hd:
+    :param is_export_code:
+    :param is_project_code:
 
     """
     # Append the appendix .tex file to the appendix manager.

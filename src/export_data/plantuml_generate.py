@@ -69,7 +69,7 @@ def output_diagram_text_file(filename, lines, output_dir_relative_to_root):
         os.remove(abs_filepath)
 
     # Write lines to file.
-    f = open(abs_filepath, "w")
+    f = open(abs_filepath, "w", encoding="utf-8")
     for line in lines:
         f.write(line)
     f.close()
