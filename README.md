@@ -40,7 +40,7 @@ conda activate roadmap
 
 ## Usage: do every run
 
-- Performe a run for assignment 1 (named project1) of main code (in `main.py`,
+- Perform a run for assignment 1 (named project1) of main code (in `main.py`,
   called from `__main__.py`)
 
 ```
