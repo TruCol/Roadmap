@@ -17,14 +17,6 @@ args = parse_cli_args()
 # create gantt chart
 gantt = Gantt("src/export_data/Diagrams/Dynamic_diagrams/gantt.uml")
 
-# Export Gantt to Latex
-# main.export_gantt_to_latex()
-
-# compile the gantt chart locally
-# compile_gantt_locally(
-#    main.relative_src_filepath, main.plant_uml_java_filename, main.src_to_gantt_path
-# )
-
 # Run data export code if any argument is given.
 if not all(
     arg is None for arg in [args.l, args.dd, args.sd, args.c2l, args.ec2l]

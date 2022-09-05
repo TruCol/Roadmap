@@ -1,36 +1,24 @@
+"""This file is used to create a Gantt chart using Python code. It is like a
+PlantUML API. The reason to use Python instead of directly specifying a Gantt
+in a .uml file, is because it is easier to update/modify the Gantt chart.
+
+For example, if you want to add an activity somewhere, in the .uml you
+have to manually update all the tag numbers to preserve the order. (And
+do that again for the colour specifications etc.) That is tedious work.
+In this Python API, you can simply say: start the activity new activity
+after activity X, and make activity Y start at the end of the new
+activity. Then it automatically updates all the tags, for all
+properties, e.g. activity descriptions, colours, order etc.
+"""
 from .Activity import Activity
 
 
+# pylint: disable=R0914
 def create_python_gantt():
+    """Specifies the data for a Gantt chart."""
+    # Create a list to store the parent activities
     parents = []
-    # parent one
-    parent_one = Activity("description", duration=5, new_tag=0, colour="Green")
-    # children
-    child_one = Activity(
-        "child one description", duration=2, new_tag=0, parent=parent_one
-    )
-    child_two = Activity(
-        "child two description", duration=2, new_tag=1, parent=parent_one
-    )
-    # merge family
-    parent_one.add_children([child_one, child_two])
-    # parents.append(parent_one)
 
-    parent_two = Activity(
-        "description two", duration=5, new_tag=1, colour="DarkOrchid"
-    )
-    # children
-    child_one = Activity(
-        "child one description two", duration=2, new_tag=0, parent=parent_two
-    )
-    child_two = Activity(
-        "child two description two", duration=2, new_tag=1, parent=parent_two
-    )
-    # merge family
-    parent_two.add_children([child_one, child_two])
-    # parents.append(parent_two)
-
-    ## parent
     # parent one
     protocol = Activity(
         description="Develop protocol",
@@ -212,7 +200,7 @@ def create_python_gantt():
     return parents
 
 
-def addTwo(self, x):
+def addTwo(x):
     """adds two to the incoming integer and returns the result of the
     computation."""
     return x + 2

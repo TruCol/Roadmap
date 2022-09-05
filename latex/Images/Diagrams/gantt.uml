@@ -90,34 +90,34 @@ skinparam classFontSize 100
 [2_3]  is colored in Yellow
 
 
-'[Develop protocol]  takes: 120[days] equating to:960[hours] and costs: 0 per hour, yielding activity costs: 0 Euros.
-'[On-chain: Solidty+VRF]  takes: 60[days] equating to:480[hours] and costs: 75 per hour, yielding activity costs: 36000 Euros.
-'[Git integration: Tellor]  takes: 90[days] equating to:720[hours] and costs: 75 per hour, yielding activity costs: 54000 Euros.
-'[Git integration: Chainlink]  takes: 90[days] equating to:720[hours] and costs: 75 per hour, yielding activity costs: 54000 Euros.
-'[Alternative Chains]  takes: 90[days] equating to:720[hours] and costs: 75 per hour, yielding activity costs: 54000 Euros.
-'[(Decentralised) Continuous integration]  takes: 30[days] equating to:240[hours] and costs: 75 per hour, yielding activity costs: 18000 Euros.
-'[Security & Robustness]  takes: 60[days] equating to:480[hours] and costs: 75 per hour, yielding activity costs: 36000 Euros.
+'[Develop protocol]  takes: 120[days] equating to:960[hours] and costs:0 per hour, yielding activity costs:0 Euros.
+'[On-chain: Solidty+VRF]  takes: 60[days] equating to:480[hours] and costs:75 per hour, yielding activity costs:36000 Euros.
+'[Git integration: Tellor]  takes: 90[days] equating to:720[hours] and costs:75 per hour, yielding activity costs:54000 Euros.
+'[Git integration: Chainlink]  takes: 90[days] equating to:720[hours] and costs:75 per hour, yielding activity costs:54000 Euros.
+'[Alternative Chains]  takes: 90[days] equating to:720[hours] and costs:75 per hour, yielding activity costs:54000 Euros.
+'[(Decentralised) Continuous integration]  takes: 30[days] equating to:240[hours] and costs:75 per hour, yielding activity costs:18000 Euros.
+'[Security & Robustness]  takes: 60[days] equating to:480[hours] and costs:75 per hour, yielding activity costs:36000 Euros.
 
 
-'[Platform & ecosystem]  takes: 120[days] equating to:960[hours] and costs: 40 per hour, yielding activity costs: 38400 Euros.
-'[Website]  takes: 50[days] equating to:400[hours] and costs: 40 per hour, yielding activity costs: 16000 Euros.
-'[API]  takes: 50[days] equating to:400[hours] and costs: 40 per hour, yielding activity costs: 16000 Euros.
-'[GUI]  takes: 50[days] equating to:400[hours] and costs: 40 per hour, yielding activity costs: 16000 Euros.
-'[Forum]  takes: 10[days] equating to:80[hours] and costs: 40 per hour, yielding activity costs: 3200 Euros.
-'[Marketing platform]  takes: 30[days] equating to:240[hours] and costs: 40 per hour, yielding activity costs: 9600 Euros.
-'[Subsidize bounties]  takes: 10[days] equating to:80[hours] and costs: 40 per hour, yielding activity costs: 3200 Euros.
-'[Platform Planning Buffer]  takes: 30[days] equating to:240[hours] and costs: 40 per hour, yielding activity costs: 9600 Euros.
+'[Platform & ecosystem]  takes: 120[days] equating to:960[hours] and costs:40 per hour, yielding activity costs:38400 Euros.
+'[Website]  takes: 50[days] equating to:400[hours] and costs:40 per hour, yielding activity costs:16000 Euros.
+'[API]  takes: 50[days] equating to:400[hours] and costs:40 per hour, yielding activity costs:16000 Euros.
+'[GUI]  takes: 50[days] equating to:400[hours] and costs:40 per hour, yielding activity costs:16000 Euros.
+'[Forum]  takes: 10[days] equating to:80[hours] and costs:40 per hour, yielding activity costs:3200 Euros.
+'[Marketing platform]  takes: 30[days] equating to:240[hours] and costs:40 per hour, yielding activity costs:9600 Euros.
+'[Subsidize bounties]  takes: 10[days] equating to:80[hours] and costs:40 per hour, yielding activity costs:3200 Euros.
+'[Platform Planning Buffer]  takes: 30[days] equating to:240[hours] and costs:40 per hour, yielding activity costs:9600 Euros.
 
 
-'[Launch company]  takes: 150[days] equating to:1200[hours] and costs: 35 per hour, yielding activity costs: 42000 Euros.
-'[Qualitative partner research]  takes: 20[days] equating to:160[hours] and costs: 35 per hour, yielding activity costs: 5600 Euros.
-'[Establish organisation]  takes: 80[days] equating to:640[hours] and costs: 35 per hour, yielding activity costs: 22400 Euros.
-'[Auditing]  takes: 10[days] equating to:80[hours] and costs: 35 per hour, yielding activity costs: 2800 Euros.
-'[Hiring]  takes: 20[days] equating to:160[hours] and costs: 35 per hour, yielding activity costs: 5600 Euros.
-'[Administration]  takes: 10[days] equating to:80[hours] and costs: 35 per hour, yielding activity costs: 2800 Euros.
-'[Legal]  takes: 20[days] equating to:160[hours] and costs: 35 per hour, yielding activity costs: 5600 Euros.
-'[Financial]  takes: 20[days] equating to:160[hours] and costs: 35 per hour, yielding activity costs: 5600 Euros.
-'[Marketing]  takes: 30[days] equating to:240[hours] and costs: 35 per hour, yielding activity costs: 8400 Euros.
-'[Organisation Planning Buffer ]  takes: 20[days] equating to:160[hours] and costs: 35 per hour, yielding activity costs: 5600 Euros.
+'[Launch company]  takes: 150[days] equating to:1200[hours] and costs:35 per hour, yielding activity costs:42000 Euros.
+'[Qualitative partner research]  takes: 20[days] equating to:160[hours] and costs:35 per hour, yielding activity costs:5600 Euros.
+'[Establish organisation]  takes: 80[days] equating to:640[hours] and costs:35 per hour, yielding activity costs:22400 Euros.
+'[Auditing]  takes: 10[days] equating to:80[hours] and costs:35 per hour, yielding activity costs:2800 Euros.
+'[Hiring]  takes: 20[days] equating to:160[hours] and costs:35 per hour, yielding activity costs:5600 Euros.
+'[Administration]  takes: 10[days] equating to:80[hours] and costs:35 per hour, yielding activity costs:2800 Euros.
+'[Legal]  takes: 20[days] equating to:160[hours] and costs:35 per hour, yielding activity costs:5600 Euros.
+'[Financial]  takes: 20[days] equating to:160[hours] and costs:35 per hour, yielding activity costs:5600 Euros.
+'[Marketing]  takes: 30[days] equating to:240[hours] and costs:35 per hour, yielding activity costs:8400 Euros.
+'[Organisation Planning Buffer ]  takes: 20[days] equating to:160[hours] and costs:35 per hour, yielding activity costs:5600 Euros.
 
 @endgantt
