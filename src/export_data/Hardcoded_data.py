@@ -1,6 +1,7 @@
-# Specify hardcoded output data.
+"""Specify hardcoded output data."""
 
-
+# pylint: disable=R0902
+# pylint: disable=R0903
 class Hardcoded_data:
     """Contains a list of parameters that are used in this project that
     combines Python code with a LaTex document."""

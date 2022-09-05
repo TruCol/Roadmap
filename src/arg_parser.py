@@ -1,9 +1,10 @@
-# This is the main code of this project nr, and it manages running the code and
-# outputting the results to LaTex.
+"""This is the main code of this project nr, and it manages running the code and
+outputting the results to LaTex."""
 import argparse
 
 
 def parse_cli_args():
+    """Parses the command line arguments to determine what this code should do."""
     # Instantiate the parser
     parser = argparse.ArgumentParser(description="Optional app description")
 

@@ -1,4 +1,4 @@
-# Compiles the latex report using the compile script.
+"""Compiles the latex report using the compile script."""
 
 
 from src.export_data.helper_bash_commands import run_a_bash_command
