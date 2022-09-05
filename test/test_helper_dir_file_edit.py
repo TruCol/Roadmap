@@ -1,5 +1,5 @@
 """Tests whether the Dynamic_diagrams directory in latex is created and deleted
-succesfully."""
+successfully."""
 import os
 import unittest
 
@@ -28,7 +28,7 @@ class Test_main(unittest.TestCase):
 
     def test_dir_relative_to_root_is_created_and_deleted(self):
         """Tests whether the Dynamic_diagrams directory in latex is created and
-        deleted succesfully."""
+        deleted successfully."""
         dynamic_diagram_dir_relative_to_root = (
             f"latex/{self.project_name}/Images/Diagrams/Dynamic_diagrams"
         )
