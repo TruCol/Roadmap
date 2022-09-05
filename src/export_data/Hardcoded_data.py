@@ -1,5 +1,6 @@
 """Specify hardcoded output data."""
 
+
 # pylint: disable=R0902
 # pylint: disable=R0903
 class Hardcoded_data:
