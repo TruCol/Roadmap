@@ -9,7 +9,7 @@ class Gantt:
 
     def __init__(self, filepath):
         self.start_line = "@startgantt"
-        self.project_start_date = "2021/07-22"
+        self.project_start_date = "2022/10-01"
         self.closed_days = ["saturday", "sunday"]
         self.gantt_font_size = "skinparam classFontSize 100"
         self.box_font_size = "30"
