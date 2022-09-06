@@ -18,7 +18,7 @@ class Gantt:
         print(params)
         self.parents = create_python_gantt(params["wages"])
         self.end_line = "@endgantt"
-        self.lines = self.get_list()
+        self.lines, self.parent_costs = self.get_list()
         self.write_gantt(filepath, self.lines)
 
         self.costs = None
@@ -30,9 +30,9 @@ class Gantt:
         lines.append(f"project starts the {self.project_start_date}")
         lines = self.add_closed_dates(lines)
         lines.append(self.gantt_font_size)
-        lines = self.loop_through_parents_printing(lines)
+        lines, parent_costs = self.loop_through_parents_printing(lines)
         lines.append(self.end_line)
-        return lines
+        return lines, parent_costs
 
     def loop_through_parents_printing(self, lines):
         """Prints all relevant data of the parent activities.
@@ -72,11 +72,13 @@ class Gantt:
 
         # compute costs
         total_costs = 0
+        parent_costs = {}
         for i, _ in enumerate(self.parents):
-            total_costs, lines = self.print_parent_costs(
+            parent, total_costs, lines = self.print_parent_costs(
                 total_costs, lines, self.parents[i]
             )
-        return lines
+            parent_costs[parent] = total_costs
+        return lines, parent_costs
 
     def print_parent_descriptions(self, lines, parent):
         """Creates the lines with the descriptions of the parents.
@@ -119,9 +121,9 @@ class Gantt:
         """
         lines.append("")
         total_costs, lines = self.print_costs(total_costs, parent, lines)
-        print(f"total_costs={total_costs}")
+        print(f"parent={parent.description},total_costs={total_costs}")
         lines.append("")
-        return total_costs, lines
+        return parent, total_costs, lines
 
     def print_descriptions(self, activity, lines):
         """Creates the UML lines that specify the activity description.

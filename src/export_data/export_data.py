@@ -1,5 +1,5 @@
 """File used to export data to latex."""
-from src.Cost_model_params import dict_to_latex_table
+from src.Cost_model import dict_to_latex_table
 from src.export_data.create_dynamic_diagrams import create_dynamic_diagrams
 from src.export_data.create_static_diagrams import create_static_diagrams
 from src.export_data.Hardcoded_data import Hardcoded_data
@@ -28,12 +28,25 @@ def export_data(args, params):
             + str(value)
             + "}"
         )
+    param_lines.append(
+        "\\newcommand"
+        + chr(92)
+        + str("total_cost".replace("_", ""))
+        + "{"
+        + str(params["total_cost"])
+        + "}"
+    )
+    print(f"param_lines={param_lines}")
     # Export parameters to file.
     overwrite_file("latex/Tables/params.tex", param_lines)
 
     # Export model parameters to Latex table:
     dict_to_latex_table(
-        params, "Parameter", "Value", r"Cost Model Parameters in \euro"
+        "latex/Tables/params_table.tex",
+        params,
+        "Parameter",
+        "Value",
+        r"Cost Model Parameters in \euro",
     )
 
     # Generating PlantUML diagrams

@@ -1,7 +1,52 @@
 """List of cost model parameters."""
 
+# pylint: disable=R0902
+class Cost_model:
+    """Computes the total costs."""
 
-# pylint: disable=R0903
+    # pylint: disable=R0913
+    def __init__(
+        self,
+        parent_costs: dict,
+        the_params: dict,
+    ):
+
+        self.parent_costs = parent_costs
+        self.operational_costs: int = (
+            the_params["daily_operational_costs"]
+            * the_params["days_to_operational_break-even"]
+        )
+        self.total_costs: dict = self.total_costs_to_dict(the_params)
+        the_params["total_cost"] = self.compute_total_cost()
+        dict_to_latex_table(
+            "latex/Tables/total_costs_table.tex",
+            self.total_costs,
+            "Description",
+            r"Cost [\euro]",
+            "Total Expected Investment Costs",
+        )
+
+    def total_costs_to_dict(self, params):
+        total_costs = {}
+        for key, value in self.parent_costs.items():
+            total_costs[key.description] = value
+
+        total_costs["Bounty Subsidising"] = (params["bounty_subsidising"],)
+        total_costs["Buffer"] = (params["buffer"],)
+        total_costs["Operational Costs"] = (self.operational_costs,)
+        print(f"total_costs={total_costs}")
+        return total_costs
+
+    def compute_total_cost(self):
+        total_cost = 0
+        for value in self.total_costs.values():
+            print(f"value={value}")
+            if isinstance(value, tuple):
+                total_cost = total_cost + int(value[0])
+            else:
+                total_cost = total_cost + int(value)
+        return total_cost
+
 
 params = {
     "wages": {
@@ -12,11 +57,17 @@ params = {
     # Bounties used to attract initial protocol users.
     "bounty_subsidising": 100000,
     "buffer": 100000,  # Buffer to take unknown costs into account.
+    "daily_operational_costs": 200,
+    "days_to_operational_break-even": 270,
 }
 
 
 def dict_to_latex_table(
-    the_params: dict, key_header: str, value_header: str, caption: str
+    filepath: str,
+    the_params: dict,
+    key_header: str,
+    value_header: str,
+    caption: str,
 ):
     """Writes a dict to a latex file.
 
@@ -27,7 +78,7 @@ def dict_to_latex_table(
     """
 
     tuples = dict_to_latex_tuples(the_params)
-    with open("latex/Tables/params_table.tex", "w", encoding="utf-8") as f:
+    with open(filepath, "w", encoding="utf-8") as f:
         backreturn = "\\\\\n" + " " * 4
 
         content = backreturn.join(
@@ -84,7 +135,9 @@ def dict_to_latex_tuples(some_dict: dict):
     for key, value in flat_dict.items():
         if isinstance(key, str):
             key = key.replace("_", " ")
+            key = key.replace("&", r"\&")
         if isinstance(value, str):
             value = value.replace("_", " ")
+            value = value.replace("&", r"\&")
         tuples.append((key, value))
     return tuples
