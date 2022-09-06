@@ -20,7 +20,6 @@ gantt = Gantt("src/export_data/Diagrams/Dynamic_diagrams/gantt.uml", params)
 
 # COmpute total project costs.
 Cost_model(gantt.parent_costs, params)
-print(f"params={params}")
 
 # Run data export code if any argument is given.
 if not all(

@@ -1,4 +1,6 @@
 """File used to export data to latex."""
+from pprint import pprint
+
 from src.Cost_model import dict_to_latex_table
 from src.export_data.create_dynamic_diagrams import create_dynamic_diagrams
 from src.export_data.create_static_diagrams import create_static_diagrams
@@ -16,27 +18,9 @@ def export_data(args, params):
 
     hd = Hardcoded_data()
 
-    # Export model parameters to .tex file with LaTex variables.
-    param_lines = []
-    # TODO: flatten dict
-    for key, value in params["wages"].items():
-        param_lines.append(
-            "\\newcommand"
-            + chr(92)
-            + str(key.replace("_", ""))
-            + "{"
-            + str(value)
-            + "}"
-        )
-    param_lines.append(
-        "\\newcommand"
-        + chr(92)
-        + str("total_cost".replace("_", ""))
-        + "{"
-        + str(params["total_cost"])
-        + "}"
-    )
+    param_lines = export_latex_params(params)
     print(f"param_lines={param_lines}")
+
     # Export parameters to file.
     overwrite_file("latex/Tables/params.tex", param_lines)
 
@@ -46,7 +30,10 @@ def export_data(args, params):
         params,
         "Parameter",
         "Value",
-        r"Cost Model Parameters in \euro",
+        (
+            r"Cost Model Parameters in \euro (/hr or absolute, unless"
+            + "specified otherwise)"
+        ),
     )
 
     # Generating PlantUML diagrams
@@ -76,3 +63,34 @@ def export_data(args, params):
         compile_latex(True, True)
         print("")
     print("\n\nDone exporting data.")
+
+
+def export_latex_params(params):
+    """Exports the model parameters and computed values to LaTex variables."""
+    # Export model parameters to .tex file with LaTex variables.
+    param_lines = []
+    # TODO: flatten dict
+    # print(f'params={params}')
+    pprint(params)
+
+    for key, value in params.items():
+        if key == "wages":
+            for wages_key, wages_value in params[key].items():
+                param_lines.append(
+                    "\\newcommand"
+                    + chr(92)
+                    + str(wages_key.replace("_", ""))
+                    + "{"
+                    + str(wages_value)
+                    + "}"
+                )
+        else:
+            param_lines.append(
+                "\\newcommand"
+                + chr(92)
+                + str(key.replace("_", "").replace("-", ""))
+                + "{"
+                + str(value)
+                + "}"
+            )
+    return param_lines

@@ -15,7 +15,6 @@ class Gantt:
         self.box_font_size = "30"
 
         # self.font_size="skinparam defaultFontSize  100"
-        print(params)
         self.parents = create_python_gantt(params["wages"])
         self.end_line = "@endgantt"
         self.lines, self.parent_costs = self.get_list()
@@ -121,7 +120,10 @@ class Gantt:
         """
         lines.append("")
         total_costs, lines = self.print_costs(total_costs, parent, lines)
+        if isinstance(total_costs, tuple):
+            total_costs = total_costs[0]
         print(f"parent={parent.description},total_costs={total_costs}")
+
         lines.append("")
         return parent, total_costs, lines
 

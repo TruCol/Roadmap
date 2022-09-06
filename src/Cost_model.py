@@ -1,5 +1,19 @@
 """List of cost model parameters."""
 
+params = {
+    "wages": {
+        "blockchain_dev": 75 + 1,
+        "front_end_dev": 40 + 1,
+        "human_resources": 35 + 1,
+    },
+    # Bounties used to attract initial protocol users.
+    "bounty_subsidising": 100000,
+    "buffer": 100000,  # Buffer to take unknown costs into account.
+    "daily_operational_costs": 200,
+    "days_to_operational_break-even": 270,
+}
+
+
 # pylint: disable=R0902
 class Cost_model:
     """Computes the total costs."""
@@ -16,8 +30,16 @@ class Cost_model:
             the_params["daily_operational_costs"]
             * the_params["days_to_operational_break-even"]
         )
-        self.total_costs: dict = self.total_costs_to_dict(the_params)
+        (
+            self.total_costs,
+            the_params["labour_costs"],
+        ) = self.total_costs_to_dict(the_params)
+
         the_params["total_cost"] = self.compute_total_cost()
+        the_params["non_labour_costs"] = (
+            the_params["total_cost"] - the_params["labour_costs"]
+        )
+
         dict_to_latex_table(
             "latex/Tables/total_costs_table.tex",
             self.total_costs,
@@ -26,40 +48,28 @@ class Cost_model:
             "Total Expected Investment Costs",
         )
 
-    def total_costs_to_dict(self, params):
+    def total_costs_to_dict(self, the_params):
+        """Generates a dictionary including all expected project costs."""
         total_costs = {}
+        labour_costs = 0
         for key, value in self.parent_costs.items():
             total_costs[key.description] = value
+            labour_costs = labour_costs + value
 
-        total_costs["Bounty Subsidising"] = (params["bounty_subsidising"],)
-        total_costs["Buffer"] = (params["buffer"],)
-        total_costs["Operational Costs"] = (self.operational_costs,)
-        print(f"total_costs={total_costs}")
-        return total_costs
+        total_costs["Bounty Subsidising"] = the_params["bounty_subsidising"]
+        total_costs["Buffer"] = the_params["buffer"]
+        total_costs["Operational Costs"] = self.operational_costs
+        return total_costs, labour_costs
 
     def compute_total_cost(self):
+        """Generates the expected summed total costs."""
         total_cost = 0
         for value in self.total_costs.values():
-            print(f"value={value}")
             if isinstance(value, tuple):
                 total_cost = total_cost + int(value[0])
             else:
                 total_cost = total_cost + int(value)
         return total_cost
-
-
-params = {
-    "wages": {
-        "blockchain_dev": 75 + 1,
-        "front_end_dev": 40 + 1,
-        "human_resources": 35 + 1,
-    },
-    # Bounties used to attract initial protocol users.
-    "bounty_subsidising": 100000,
-    "buffer": 100000,  # Buffer to take unknown costs into account.
-    "daily_operational_costs": 200,
-    "days_to_operational_break-even": 270,
-}
 
 
 def dict_to_latex_table(
@@ -76,8 +86,8 @@ def dict_to_latex_table(
     :param value_header: str:
     :param caption: str:
     """
-
     tuples = dict_to_latex_tuples(the_params)
+
     with open(filepath, "w", encoding="utf-8") as f:
         backreturn = "\\\\\n" + " " * 4
 
@@ -121,7 +131,6 @@ def flatten_dict(some_dict: dict):
                 flat_dict[newKey] = newValue
         else:
             flat_dict[key] = value
-    print(f"flattend_params={flat_dict}")
     return flat_dict
 
 
