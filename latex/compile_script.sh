@@ -6,11 +6,7 @@
 
 
 # Loop over the main .tex files to compile for different conferences.
-#for OUTPUT in $(echo "opodis" "45_software" "5_blockchain")
-#for OUTPUT in $(echo "45_software" "5_blockchain")
-#for OUTPUT in $(echo "opodis")
-for OUTPUT in $(echo "main")
-#for OUTPUT in $(echo "5_blockchain")
+for OUTPUT in $(echo "main" "seed_milestone_fund")
 do
     REPORT_FILENAME=$OUTPUT
     echo "REPORT_FILENAME=$REPORT_FILENAME"
