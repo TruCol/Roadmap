@@ -1,0 +1,28 @@
+@startgantt
+project starts the 2021/07-22
+saturday are closed
+sunday are closed
+
+<style>
+ganttDiagram {
+    milestone {
+        FontColor blue
+        FontSize 40
+        FontStyle italic
+        BackGroundColor yellow
+        LineColor red
+    }
+}
+</style>
+
+[<size:30>Document relevant studies - 0.2] as [0_2] lasts 10 days
+[<size:30>Deliverable: Literature Study - 0.3] as [0_3] happens at [0_2]'s end
+[<size:30>Overlapping Research Project - 1] as [1] lasts 11 days
+
+[0_3] happens at [0_2]'s end
+[1] starts at [0_2]'s end
+
+[0_2]  is colored in DarkOrchid
+[1]  is colored in Cyan
+@endgantt
+
