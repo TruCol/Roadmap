@@ -317,10 +317,6 @@ def create_appendices(
     appendix_inclusion_command = tex_appendix_filename_to_inclusion_command(
         appendix_filename, from_root
     )
-    # if from_root:
-    #    print(f'tex_appendix_filename_to_inclusion_command=
-    # + {appendix_inclusion_command}')
-    #    exit()
 
     append_appendix_to_appendix_managers(
         appendix_inclusion_command,

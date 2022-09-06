@@ -11,6 +11,8 @@ from src.export_data.helper_dir_file_edit import (
 from src.export_data.plantuml_compile import (
     compile_diagrams_in_dir_relative_to_root,
 )
+
+# pylint: disable=R0801
 from src.export_data.plantuml_generate import (
     create_trivial_gantt,
     output_diagram_text_file,
@@ -25,7 +27,7 @@ class Test_main(unittest.TestCase):
         """Initialises test object."""
         super().__init__(*args, **kwargs)
         self.script_dir = self.get_script_dir()
-        self.project_name = "Whitepaper"
+        self.project_name = "roadmap"
 
     def get_script_dir(self):
         """returns the directory of this script regardless of from which level

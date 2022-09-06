@@ -19,7 +19,7 @@ class Test_main(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.script_dir = self.get_script_dir()
-        self.project_name = "Whitepaper"
+        self.project_name = "roadmap"
 
     def get_script_dir(self):
         """returns the directory of this script regardless of from which level

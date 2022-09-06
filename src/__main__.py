@@ -2,9 +2,12 @@
 export commands are given to the cli command that invokes this script."""
 
 
-# Project code imports.
 from src.arg_parser import parse_cli_args
+from src.Cost_model import Cost_model, params
 from src.export_data.export_data import export_data
+
+# Project code imports.
+from src.Gantt import Gantt
 
 # Export data import.
 
@@ -12,8 +15,14 @@ from src.export_data.export_data import export_data
 # Parse command line interface arguments to determine what this script does.
 args = parse_cli_args()
 
+# create gantt chart
+gantt = Gantt("src/export_data/Diagrams/Dynamic_diagrams/gantt.uml", params)
+
+# COmpute total project costs.
+Cost_model(gantt.parent_costs, params)
+
 # Run data export code if any argument is given.
 if not all(
     arg is None for arg in [args.l, args.dd, args.sd, args.c2l, args.ec2l]
 ):
-    export_data(args)
+    export_data(args, params)
