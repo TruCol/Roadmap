@@ -52,9 +52,21 @@ class Cost_model:
         """Generates a dictionary including all expected project costs."""
         total_costs = {}
         labour_costs = 0
-        for key, value in self.parent_costs.items():
-            total_costs[key.description] = value
-            labour_costs = labour_costs + value
+
+        # Get the order of the parent actities.
+        order = []
+        for key in self.parent_costs.keys():
+            order.append(key)
+        # The stored total costs are cumulative costs, so subtract the costs of
+        # the previous parent to get the actual costs of the parent.
+        for i, key in enumerate(order):
+            if i == 0:
+                total_costs[key.description] = self.parent_costs[key]
+            else:
+                total_costs[key.description] = (
+                    self.parent_costs[key] - self.parent_costs[order[i - 1]]
+                )
+            labour_costs = labour_costs + total_costs[key.description]
 
         total_costs["Bounty Subsidising"] = the_params["bounty_subsidising"]
         total_costs["Buffer"] = the_params["buffer"]
