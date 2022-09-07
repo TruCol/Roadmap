@@ -21,6 +21,7 @@ class Activity:
         hours_per_day=None,
         min_parallel_workers=1,
         max_parallel_workers=1,
+        milestone=None,
     ):
         self.parent = parent
         self.description = description
@@ -32,6 +33,7 @@ class Activity:
         self.hourly_wage = hourly_wage
         self.min_parallel_workers = min_parallel_workers
         self.max_parallel_workers = max_parallel_workers
+        self.milestone = milestone
 
         if hours_per_day is None:
             self.hours_per_day = 8

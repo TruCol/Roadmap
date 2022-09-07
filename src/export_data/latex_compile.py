@@ -31,3 +31,4 @@ def compile_latex(await_compilation, verbose):
     # Run latex compilation script to compile latex project.
     bash_compilation_command = "latex/compile_script.sh"
     run_a_bash_command(await_compilation, bash_compilation_command, verbose)
+    print(f'ran:{bash_compilation_command}')
