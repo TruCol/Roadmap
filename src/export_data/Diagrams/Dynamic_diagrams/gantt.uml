@@ -17,7 +17,7 @@ skinparam classFontSize 100
     }
 }
 </style>
-
+    
 [<size:30>Complete CI deployment - complete_ci_deployment] as [complete_ci_deployment] happens  2022/10-01
 
 [<size:30>Develop protocol] as [0] lasts 120 days
