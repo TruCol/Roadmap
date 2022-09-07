@@ -4,10 +4,27 @@ saturday are closed
 sunday are closed
 skinparam classFontSize 100
 
+    <style>
+    ganttDiagram {
+    milestone {
+
+        FontColor blue
+        FontSize 100
+        FontStyle italic
+        BackGroundColor red
+        LineColor yellow
+
+    }
+}
+</style>
+
+[<size:30>Complete CI deployment - complete_ci_deployment] as [complete_ci_deployment] happens  2022/10-01
+
 [<size:30>Develop protocol] as [0] lasts 120 days
 [<size:30>On-chain: Solidty+VRF] as [0_0] lasts 60 days
 [<size:30>Git integration: Tellor] as [0_1] lasts 90 days
 [<size:30>Git integration: Chainlink] as [0_2] lasts 90 days
+[<size:30>Support all languages - support_all_languages] as [support_all_languages] happens at [0_2]'s end
 [<size:30>Alternative Chains] as [0_3] lasts 90 days
 [<size:30>(Decentralised) Continuous integration] as [0_2_0] lasts 30 days
 [<size:30>Security & Robustness] as [0_2_1] lasts 60 days
@@ -20,6 +37,7 @@ skinparam classFontSize 100
 [<size:30>Marketing platform] as [1_1] lasts 30 days
 [<size:30>Subsidize bounties] as [1_2] lasts 10 days
 [<size:30>Platform Planning Buffer] as [1_3] lasts 30 days
+[<size:30>First Customer Usage - first_customer_usage] as [first_customer_usage] happens  2023-03-17
 
 [<size:30>Launch company] as [2] lasts 150 days
 [<size:30>Qualitative partner research] as [2_0] lasts 20 days
@@ -31,6 +49,7 @@ skinparam classFontSize 100
 [<size:30>Financial] as [2_1_4] lasts 20 days
 [<size:30>Marketing] as [2_2] lasts 30 days
 [<size:30>Organisation Planning Buffer ] as [2_3] lasts 20 days
+[<size:30>Operational Break Even - operational_break_even] as [operational_break_even] happens  2023-06-09
 
 [0_0] starts at [0]'s start
 [0_1] starts at [0]'s start

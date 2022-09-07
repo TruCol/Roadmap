@@ -1,6 +1,11 @@
 """Creates the Gantt chart specified in create_python_gantt."""
 
 from src.Create_python_gantt import create_python_gantt
+from src.export_data.Milestone import (
+    get_milestone_for_date,
+    get_milestone_style,
+    get_milestone_uml_line,
+)
 
 
 # pylint: disable=R0902
@@ -11,24 +16,37 @@ class Gantt:
         self.start_line = "@startgantt"
         self.project_start_date = "2022/10-01"
         self.closed_days = ["saturday", "sunday"]
-        self.gantt_font_size = "skinparam classFontSize 100"
+        self.gantt_font_size = 100
+        self.gantt_font_size_line = (
+            f"skinparam classFontSize {self.gantt_font_size}"
+        )
         self.box_font_size = "30"
 
         # self.font_size="skinparam defaultFontSize  100"
-        self.parents = create_python_gantt(params["wages"])
+        self.parents, self.date_milestones = create_python_gantt(
+            params["wages"], self.box_font_size, self.project_start_date
+        )
         self.end_line = "@endgantt"
-        self.lines, self.parent_costs = self.get_list()
+        self.lines, self.parent_costs = self.get_plantuml_gantt_lines()
         self.write_gantt(filepath, self.lines)
 
         self.costs = None
 
-    def get_list(self):
+    def get_plantuml_gantt_lines(self):
         """Gets the list of lines of the UML file to create a Gantt chart."""
         lines = []
         lines.append(self.start_line)
         lines.append(f"project starts the {self.project_start_date}")
         lines = self.add_closed_dates(lines)
-        lines.append(self.gantt_font_size)
+        lines.append(self.gantt_font_size_line)
+        # Add milestone style here
+        lines.append(get_milestone_style("blue", 100, "red", "yellow"))
+
+        # Include date milestones
+        for date_milestone in self.date_milestones:
+            lines.append(get_milestone_for_date(date_milestone))
+
+        # Writes acitivity line, appends milestone line below activity.
         lines, parent_costs = self.loop_through_parents_printing(lines)
         lines.append(self.end_line)
         return lines, parent_costs
@@ -142,6 +160,12 @@ class Gantt:
             f"[<size:{font_size}>{activity.description}] as ["
             + f"{activity.get_tag()}] lasts {activity.duration} days"
         )
+
+        # If activity has milestone, include it here.
+        if activity.milestone is not None:
+            lines.append(
+                get_milestone_uml_line(activity.milestone, activity.get_tag())
+            )
         for child in activity.children:
             lines = self.print_descriptions(child, lines)
         return lines

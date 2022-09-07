@@ -10,15 +10,25 @@ after activity X, and make activity Y start at the end of the new
 activity. Then it automatically updates all the tags, for all
 properties, e.g. activity descriptions, colours, order etc.
 """
+from src.export_data.Milestone import Milestone
+
 from .Activity import Activity
 
 
 # pylint: disable=R0914
-def create_python_gantt(wages: dict):
+def create_python_gantt(
+    wages: dict, milestone_font_size=None, start_date=None
+):
     """Specifies the data for a Gantt chart."""
     # Create a list to store the parent activities
     parents = []
-
+    date_milestones = [
+        Milestone(
+            description="Complete CI deployment",
+            font_size=milestone_font_size,
+            date=start_date,
+        )
+    ]
     # parent one
     protocol = Activity(
         description="Develop protocol",
@@ -50,6 +60,10 @@ def create_python_gantt(wages: dict):
         parent=protocol,
         starts_at_child_nr_start=0,
         hourly_wage=wages["blockchain_dev"],
+        milestone=Milestone(
+            description="Support all languages",
+            font_size=milestone_font_size,
+        ),
     )
     alt_chains = Activity(
         description="Alternative Chains",
@@ -112,6 +126,12 @@ def create_python_gantt(wages: dict):
         duration=30,
         new_tag=3,
         parent=platform_eco,
+        milestone=Milestone(
+            description="First Customer Usage",
+            font_size=milestone_font_size,
+            # TODO: remove date, make it place on the right position.
+            date="2023-03-17",
+        ),
     )
 
     # Grandchildren
@@ -167,6 +187,12 @@ def create_python_gantt(wages: dict):
         duration=20,
         new_tag=3,
         parent=company,
+        milestone=Milestone(
+            description="Operational Break Even",
+            font_size=milestone_font_size,
+            # TODO: remove date, make it place on the right position.
+            date="2023-06-09",
+        ),
     )
 
     # Grandchildren
@@ -197,7 +223,9 @@ def create_python_gantt(wages: dict):
     )
     parents.append(company)
 
-    return parents
+    # Create Milestones
+
+    return parents, date_milestones
 
 
 def addTwo(x):
