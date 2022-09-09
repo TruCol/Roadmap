@@ -6,7 +6,7 @@
 
 
 # Loop over the main .tex files to compile for different conferences.
-for OUTPUT in $(echo "main" "precursor_vc_fund")
+for OUTPUT in $(echo "main")
 do
     REPORT_FILENAME=$OUTPUT
     echo "REPORT_FILENAME=$REPORT_FILENAME"
